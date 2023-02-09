@@ -20,6 +20,19 @@ class Highscores:
             else:
                 update_list.append(f"{player.name},{new_win},{new_times_played}")
                 return update_list
+            
+    def view_highscore(cls, name):
+        with open("Results.txt", 'r') as filename:
+            lines = filename.readlines()
+            for line in lines:
+                line = line.strip()
+                parts = line.split(',')
+                if parts[0] == name:
+                    highscore = parts[1]
+                    times_played = parts[2]
+                else:
+                    highscore, times_played = 0, 0
+        return name, highscore, times_played
 
     def update_results(cls, update_list):
         with open("Results.txt", 'w') as filename:
