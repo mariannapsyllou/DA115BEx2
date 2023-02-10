@@ -3,10 +3,8 @@ from Highscores import Highscores
 
 class Player:
 
-    def __init__(self, name, score, round_score):
+    def __init__(self, name):
         self.name = name
-        self.score = 0
-        self.round_score = 0
         self.cls = Highscores()
 
     def retrieve_player(self, name):

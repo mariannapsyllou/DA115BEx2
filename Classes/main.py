@@ -1,3 +1,3 @@
 from Menu.menu import *
-from Classes.game import Game
-
+from game import Game
+from Player import Player

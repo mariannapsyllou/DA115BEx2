@@ -11,6 +11,7 @@ class Game:
     def roll_dice(self, player):
         throw = random.choice(self.dice)
         if throw == 1:
+            self.round_score = 0
             print(f"Oh no!, {player} You are losing your round points")
         else:
             print(f"{player},You rolled {throw}")
@@ -20,7 +21,7 @@ class Game:
 
     def hold(self, player):
         self.score += self.round_score
-        print(f"Your round score {player} is : {self.round_score}")
+        print(f"Your round score {player} is : {self.round_score} and your total score is : {self.score}")
         return self.score
 
     def find_winner(self, player):
@@ -30,7 +31,7 @@ class Game:
     def get_round_score(self):
         return self.round_score
 
-    def set_scores(self):
+    def reset_scores(self):
         """Setting the scores back to 0 in case he quits the game"""
         self.round_score = 0
         self.score = 0
