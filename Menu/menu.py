@@ -28,6 +28,7 @@ def set_difficulty() -> str:
     """Allows user to pick a difficulty"""
     print("Pick a difficulty")
     print("1- Easy\n2- Intermediate\n3- Hard")
+    print("(1, 2 or 3)")
     difficulty = str(input("Choice: "))
 
     difficulty = "easy" if difficulty == "1" \

@@ -11,7 +11,13 @@ class MainShell(cmd.Cmd):
         player1, player2 = two_player_menu()
         return player1, player2
 
+    def do_single(self, args):
+        player1 = single_player_menu()
+        print(player1)
+        return player1
 
+    def do_highscore(self, args):
+        return highscore_getname()
 
 if __name__ == "__main__":
     MainShell().cmdloop()
