@@ -1,3 +1,5 @@
+import cmd, sys
+
 def main_menu() -> str:
     """prints main menu and returns choice"""
     print("1- Two players\n2- Single-Player"

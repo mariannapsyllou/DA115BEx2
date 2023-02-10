@@ -13,14 +13,17 @@ class TestIntelligence(unittest.TestCase):
 
     def test_intermediate(self):
         rolls = 0
-        iterations = 100
+        iterations = 10000
         for i in range(iterations):
             ans = self._p.intermediate()
             if ans == "r":
                 rolls += 1
 
-        result = (rolls/iterations) * iterations
+        result = (rolls/iterations) * 100
         final = True
-        if result < 60 or result > 80:
+        if result < 55 or result > 77:
             final = False
+        print(result)
         self.assertEqual(final, True)
+
+
