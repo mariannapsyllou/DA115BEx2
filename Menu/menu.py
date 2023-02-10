@@ -1,10 +1,11 @@
 import cmd, sys
 
-def main_menu() -> str:
+def main_menu() -> None:
     """prints main menu and returns choice"""
+    print("Welcome! Enter help to see commands")
     print("1- Two players\n2- Single-Player"
           "\n3- Show highscore\n4- Exit")
-    return input("choice: ")
+
 
 
 def two_player_menu() -> tuple:
