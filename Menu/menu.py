@@ -1,11 +1,9 @@
-import cmd, sys
 
 def main_menu() -> None:
     """prints main menu and returns choice"""
     print("Welcome! Enter help to see commands")
     print("1- Two players\n2- Single-Player"
           "\n3- Show highscore\n4- Exit")
-
 
 
 def two_player_menu() -> tuple:
@@ -50,4 +48,3 @@ def game_choice(player):
     choice_game = str(
         input('Enter R to roll, or H to hold: ')).lower()[0]
     return choice_game
-

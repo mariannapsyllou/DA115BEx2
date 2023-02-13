@@ -1,7 +1,8 @@
+import cmd
 import random
 
 
-class Game:
+class Game():
 
     def __init__(self):
         self.dice = [1, 2, 3, 4, 5, 6]
