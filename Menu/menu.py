@@ -40,11 +40,3 @@ def highscore_getname() -> str:
         input("Enter the name of a player to view highscore: "))
     return name_highscore
 
-
-def game_choice(player):
-    """Allows user to choose either roll or hold in game"""
-    print(f"{player}s turn")
-    print("1- Roll\n2- Hold\n3- Exit game")
-    choice_game = str(
-        input('Enter R to roll, or H to hold: ')).lower()[0]
-    return choice_game

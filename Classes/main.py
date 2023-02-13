@@ -1,9 +1,10 @@
 from Menu.menu import main_menu, two_player_menu, \
-    single_player_menu, highscore_getname
-from game import Game
-from Player import Player
+    single_player_menu
+
 import cmd, sys
-import game1
+import game
+import Intelligence
+
 
 class MainShell(cmd.Cmd):
     main_menu()
@@ -21,11 +22,13 @@ class MainShell(cmd.Cmd):
 
     def do_two(self, args):
         self.player1, self.player2 = two_player_menu()
-        
-        game1.Game(self.player1, self.player2)
+
+        game.Game(self.player1, self.player2)
 
     def do_single(self, args):
         self.player1, self.difficulty = single_player_menu()
+
+        Intelligence.Intelligence(self.player1, self.difficulty)
 
     def do_highscore(self, args):
         self.highscore_name = highscore_getname()
@@ -37,3 +40,4 @@ class MainShell(cmd.Cmd):
 
 if __name__ == "__main__":
     MainShell().cmdloop()
+
