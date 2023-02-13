@@ -1,7 +1,7 @@
 import random
 import cmd
 import dice_visual
-import game
+import game1
 
 
 class Intelligence(cmd.Cmd):
@@ -16,7 +16,11 @@ class Intelligence(cmd.Cmd):
         self._difficulty = difficulty
         self.current_score = 0
         self.game_menu()
-        self.display_dice_visual()
+
+
+
+
+
 
     def easy(self) -> str:
         """Picks 50/50 between hold and roll and returns
@@ -63,29 +67,13 @@ class Intelligence(cmd.Cmd):
             self.current_score = 0
             if self.current_player == self.player1:
                 self.current_player = self.player2
+                if self.current_player == self.player2:
+                    self.game_menu()
             else:
                 self.current_player = self.player1
         else:
             self.current_score += roll
             self.game_menu()
-            if self.current_player == self.player2:
-                while self.current_player == self.player2:
-                    roll = random.randint(1, 6)
-                    self.display_dice_visual(roll)
-                    if roll == 1:
-                        self.current_score = 0
-                        self.current_player = self.player1
-                    else:
-                        self.current_score += roll
-                        if self._difficulty == 1:
-                            computer_choice = self.easy()
-                        elif self._difficulty == 2:
-                            computer_choice = self.intermediate()
-                        else:
-                            computer_choice = self.difficult(self.current_score)
-                        if computer_choice == "h":
-                            break
-        self.game_menu()
 
     def do_hold(self, args):
         self.total_score[self.current_player] += self.current_score
@@ -103,10 +91,30 @@ class Intelligence(cmd.Cmd):
             print(f"{self.total_score[self.current_player]}")
             print(f"Current round score: {self.current_score}")
             if self.current_player == self.player2:
-                self.do_roll("")
+                self.game_pc()
             else:
                 self.cmdloop()
         print(f"{max(self.total_score, key=self.total_score.get)} wins!")
+
+    def game_pc(self):
+        if self._difficulty == 1:
+            computer_choice = self.easy()
+        elif self._difficulty == 2:
+            computer_choice = self.intermediate()
+        else:
+            computer_choice = self.difficult(self.current_score)
+        if self.current_player == self.player2:
+            if computer_choice == "r":
+                roll_pc = random.randint(2, 6)
+                self.display_dice_visual(roll_pc)
+                if roll_pc == 1:
+                    self.current_score = 0
+                    self.current_player = self.player1
+                else:
+                    self.current_score += roll_pc
+            else:
+                self.do_hold("")
+
 
 
 
