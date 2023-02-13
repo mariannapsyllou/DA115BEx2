@@ -1,7 +1,7 @@
 import random
 import cmd
 import dice_visual
-import game1
+import game
 
 
 class Intelligence(cmd.Cmd):
@@ -26,15 +26,20 @@ class Intelligence(cmd.Cmd):
         """Picks 50/50 between hold and roll and returns
         result"""
         computer_choices = ["h", "r"]
-        choice = computer_choices[random.randrange(0, 2)]
-        return choice
+        if self.current_score == 0:
+            return "r"
+        else:
+            choice = computer_choices[random.randrange(0, 2)]
+            return choice
 
     def intermediate(self) -> str:
         """ca 66% chance that roll is returned"""
         computer_choices = ["h", "r", "r"]
-        choice = computer_choices[random.randrange(0, 3)]
-
-        return choice
+        if self.current_score == 0:
+            return "r"
+        else:
+            choice = computer_choices[random.randrange(0, 3)]
+            return choice
 
     def difficult(self, current_score: int):
         """80% that computer picks roll, unless current score
@@ -105,7 +110,7 @@ class Intelligence(cmd.Cmd):
             computer_choice = self.difficult(self.current_score)
         if self.current_player == self.player2:
             if computer_choice == "r":
-                roll_pc = random.randint(2, 6)
+                roll_pc = random.randint(1, 6)
                 self.display_dice_visual(roll_pc)
                 if roll_pc == 1:
                     self.current_score = 0
