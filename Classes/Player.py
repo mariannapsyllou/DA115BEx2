@@ -7,16 +7,6 @@ class Player:
         self.name = name
         self.cls = Highscores()
 
-    def retrieve_player(self, name):
-        list = self.cls.list_results()
-        for item in list:
-            name, *rest = item.split(',')
-            if name == self.name:
-                highscore, times_played = [int(num) for num in rest]
-                return self.name, highscore, times_played
-            else:
-                return self.name, 0, 0
-
     def name(self):
         return self.name
 

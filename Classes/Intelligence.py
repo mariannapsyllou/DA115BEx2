@@ -2,7 +2,7 @@ import random
 import cmd
 import dice_visual
 import game
-
+import time
 
 class Intelligence(cmd.Cmd):
     prompt = ">>>"
@@ -16,10 +16,6 @@ class Intelligence(cmd.Cmd):
         self._difficulty = difficulty
         self.current_score = 0
         self.game_menu()
-
-
-
-
 
 
     def easy(self) -> str:
@@ -44,12 +40,15 @@ class Intelligence(cmd.Cmd):
     def difficult(self, current_score: int):
         """80% that computer picks roll, unless current score
         random number between 10, 50"""
-        computer_choices = computer_choices = ["h", "r", "r", "r", "r"]
-        choice = computer_choices[random.randrange(0, 5)]
-
-        if current_score == random.randrange(10, 50):
-            return "h"
-        return choice
+        difference = max(self.total_score.values()) - min(self.total_score.values())
+        if max(self.total_score.values()) >= 71 or self.current_score == 0:
+            return "r"
+        else:
+            if self.current_score >= \
+                    21 + (difference//8):
+                return "h"
+            else:
+                return "r"
 
     def display_dice_visual(self, roll):
         if roll == 1:
@@ -90,12 +89,14 @@ class Intelligence(cmd.Cmd):
         self.game_menu()
 
     def game_menu(self):
-        while max(self.total_score.values()) < 100:
+        while max(self.total_score.values()) < 100 and \
+                max(self.total_score.values()) + self.current_score < 100:
             print(f"{self.current_player}'s turn")
             print(f"{self.current_player}'s total score:", end=' ')
             print(f"{self.total_score[self.current_player]}")
             print(f"Current round score: {self.current_score}")
             if self.current_player == self.player2:
+                time.sleep(2.0)
                 self.game_pc()
             else:
                 self.cmdloop()
@@ -119,7 +120,3 @@ class Intelligence(cmd.Cmd):
                     self.current_score += roll_pc
             else:
                 self.do_hold("")
-
-
-
-

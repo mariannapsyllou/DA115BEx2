@@ -51,10 +51,11 @@ class Game(cmd.Cmd):
         self.game_menu()
 
     def do_hack(self, args):
-        self.current_score += 10
+        self.current_score += 90
 
     def game_menu(self):
-        while max(self.total_score.values()) < 100:
+        while max(self.total_score.values()) < 100 and \
+                max(self.total_score.values()) + self.current_score < 100:
             print(f"{self.current_player}'s turn")
             print(f"{self.current_player}'s total score:", end=' ')
             print(f"{self.total_score[self.current_player]}")
