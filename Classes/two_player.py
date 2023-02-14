@@ -3,7 +3,7 @@ import random
 import dice_visual
 
 
-class Game(cmd.Cmd):
+class TwoPlayer(cmd.Cmd):
     prompt = ">>> "
 
     def __init__(self, player1, player2):

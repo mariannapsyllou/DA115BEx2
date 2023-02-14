@@ -1,7 +1,7 @@
 import menu
 import cmd
-import game
-import Intelligence
+import two_player
+import single_player
 
 
 class MainShell(cmd.Cmd):
@@ -21,12 +21,12 @@ class MainShell(cmd.Cmd):
     def do_two(self, args):
         self.player1, self.player2 = menu.two_player_menu()
         # create players
-        game.Game(self.player1, self.player2)
+        two_player.TwoPlayer(self.player1, self.player2)
 
     def do_single(self, args):
         self.player1, self.difficulty = menu.single_player_menu()
 
-        Intelligence.Intelligence(self.player1, self.difficulty)
+        single_player.SinglePlayer(self.player1, self.difficulty)
 
     def do_highscore(self, args):
         self.highscore_name = menu.highscore_getname()

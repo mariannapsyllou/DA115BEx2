@@ -6,7 +6,6 @@ def dice1():
     print(" -----------")
 
 
-
 def dice2():
     print(" ----------")
     print("|   ____  |")

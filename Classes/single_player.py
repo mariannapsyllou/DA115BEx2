@@ -1,10 +1,10 @@
 import random
 import cmd
 import dice_visual
-import game
+import two_player
 import time
 
-class Intelligence(cmd.Cmd):
+class SinglePlayer(cmd.Cmd):
     prompt = ">>>"
 
     def __init__(self, player1, difficulty):

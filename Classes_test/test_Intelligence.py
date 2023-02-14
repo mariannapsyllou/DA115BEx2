@@ -1,5 +1,5 @@
 import unittest
-from Classes.Intelligence import Intelligence
+from Classes.single_player import Intelligence
 
 class TestIntelligence(unittest.TestCase):
     _p = Intelligence("wa")
