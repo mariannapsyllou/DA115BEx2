@@ -16,6 +16,10 @@ class Highscores():
         else:
             print(f"You have not any registered scores yet")
 
+    def view_instructions(self):
+        with open("Instructions.txt", "r") as filename:
+            for line in filename:
+                print(line)
 
 
    

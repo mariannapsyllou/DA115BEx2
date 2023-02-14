@@ -1,8 +1,8 @@
 import random
 import cmd
 import dice_visual
-import two_player
 import time
+
 
 class SinglePlayer(cmd.Cmd):
     prompt = ">>>"

@@ -36,6 +36,10 @@ class MainShell(cmd.Cmd):
 
     def do_change(self, args):
         pass
+    
+    def do_view(self, args):
+        high = Highscores.Highscores()
+        high.view_instructions()
 
     def do_exit(self, args):
         print("Thank you for playing")
