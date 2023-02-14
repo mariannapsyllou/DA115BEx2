@@ -2,6 +2,7 @@ import menu
 import cmd
 import two_player
 import single_player
+import Highscores
 
 
 class MainShell(cmd.Cmd):
@@ -30,6 +31,8 @@ class MainShell(cmd.Cmd):
 
     def do_highscore(self, args):
         self.highscore_name = menu.highscore_getname()
+        high = Highscores.Highscores()
+        high.scores(self.highscore_name)
 
     def do_change(self, args):
         pass
