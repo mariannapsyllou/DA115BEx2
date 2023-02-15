@@ -6,7 +6,7 @@ class Highscores():
             for line in filename:
                 line = line.strip()
                 key, value = line.split(",")
-                result_dict[key] = value
+                result_dict[key] = int(value)
         return result_dict
 
     def scores(self, player):
@@ -21,12 +21,12 @@ class Highscores():
             for line in filename:
                 print(line)
 
-    def update(self, player, new_win):
+    def update(self, player):
         update_dict = self.dict_results()
         if player in update_dict:
-            update_dict[player] += new_win
+            update_dict[player] += 1
         else:
-            update_dict[player] = new_win
+            update_dict[player] = 1
         with open("Results.txt", "w") as filename:
             for key, value in update_dict.items():
-                filename.write(f"{key},{value}")
+                filename.write(f"{key},{str(value)}\n")

@@ -1,6 +1,7 @@
 import cmd
 import random
 import dice_visual
+import Highscores
 
 
 class TwoPlayer(cmd.Cmd):
@@ -62,3 +63,5 @@ class TwoPlayer(cmd.Cmd):
             print(f"Current round score: {self.current_score}")
             self.cmdloop()
         print(f"{max(self.total_score, key=self.total_score.get)} wins!")
+        high = Highscores.Highscores()
+        high.update(self.current_player)

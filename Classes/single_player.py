@@ -2,6 +2,7 @@ import random
 import cmd
 import dice_visual
 import time
+import Highscores
 
 
 class SinglePlayer(cmd.Cmd):
@@ -101,6 +102,8 @@ class SinglePlayer(cmd.Cmd):
             else:
                 self.cmdloop()
         print(f"{max(self.total_score, key=self.total_score.get)} wins!")
+        high = Highscores.Highscores()
+        high.update(self.current_player)
 
     def game_pc(self):
         if self._difficulty == 1:

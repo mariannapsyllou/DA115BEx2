@@ -1,1 +1,5 @@
 Erik,20
+Marianna,3
+Computer,1
+Whatever,1
+Nick,1

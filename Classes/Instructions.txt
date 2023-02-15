@@ -4,3 +4,4 @@ The goal is to collect 100 points in order to winn!
 You have 2 options to roll or hold
 If you roll your points are collected until you hold, when the are added to your total
 If you roll 1 you lose all your round points
+You can use the help command to see what commands you can use
