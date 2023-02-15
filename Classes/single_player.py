@@ -20,27 +20,31 @@ class SinglePlayer(cmd.Cmd):
 
 
     def easy(self) -> str:
-        """Picks 50/50 between hold and roll and returns
-        result"""
-        computer_choices = ["h", "r"]
-        if self.current_score == 0:
-            return "r"
+        """
+        Computer rolls till 20 points and then holds
+        """
+        if self.current_score <= 20:
+            choice = "r"
         else:
-            choice = computer_choices[random.randrange(0, 2)]
-            return choice
+            choice = "h"
+        return choice
 
     def intermediate(self) -> str:
-        """ca 66% chance that roll is returned"""
-        computer_choices = ["h", "r", "r"]
-        if self.current_score == 0:
-            return "r"
+        """
+        Computer rolls till 25 points and then holds
+        """
+        if self.current_score <= 25:
+            choice = "r"
         else:
-            choice = computer_choices[random.randrange(0, 3)]
-            return choice
+            choice = "h"
+        return choice
 
     def difficult(self, current_score: int):
-        """80% that computer picks roll, unless current score
-        random number between 10, 50"""
+        """
+        Computer will roll if either player has score of 71
+        Otherwise hold on 21 plus the difference between scores
+        divided by 8
+        """
         difference = max(self.total_score.values()) - min(self.total_score.values())
         if max(self.total_score.values()) >= 71 or self.current_score == 0:
             return "r"
