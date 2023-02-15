@@ -66,6 +66,7 @@ class TwoPlayer(cmd.Cmd):
         print(f"{max(self.total_score, key=self.total_score.get)} wins!")
         high = Highscores.Highscores()
         high.update(self.current_player)
+        self.do_quit("")
 
     def do_quit(self, args):
         shell = main.MainShell()

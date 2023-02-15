@@ -91,7 +91,9 @@ class SinglePlayer(cmd.Cmd):
 
     def game_menu(self):
         while self.total_score[self.current_player] < 100 and \
-                (self.total_score[self.current_player]) + self.current_score < 100:
+                (self.total_score[self.current_player])\
+                + self.current_score < 100:
+
             print(f"{self.current_player}'s turn")
             print(f"{self.current_player}'s total score:", end=' ')
             print(f"{self.total_score[self.current_player]}")
@@ -104,6 +106,7 @@ class SinglePlayer(cmd.Cmd):
         print(f"{max(self.total_score, key=self.total_score.get)} wins!")
         high = Highscores.Highscores()
         high.update(self.current_player)
+        self.do_quit("")
 
     def game_pc(self):
         if self._difficulty == 1:
