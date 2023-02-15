@@ -32,9 +32,9 @@ def dice4():
 
 def dice5():
     print(" ----------")
-    print("|  ___    |")
-    print("| |___    |")
-    print("|  ___|   |")
+    print("|  ____  |")
+    print("| |____    |")
+    print("|  ____|   |")
     print(" ----------")
 
 

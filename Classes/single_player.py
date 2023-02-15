@@ -12,7 +12,7 @@ class SinglePlayer(cmd.Cmd):
         self.player1 = player1
         self.player2 = "Computer"
         self.current_player = player1
-        self.total_score = {player1: 0, self.player2: 0}
+        self.total_score = {player1: 0, self.player2: 80}
         self._difficulty = difficulty
         self.current_score = 0
         self.game_menu()
@@ -89,8 +89,8 @@ class SinglePlayer(cmd.Cmd):
         self.game_menu()
 
     def game_menu(self):
-        while max(self.total_score.values()) < 100 and \
-                max(self.total_score.values()) + self.current_score < 100:
+        while self.total_score[self.current_player] < 100 and \
+                (self.total_score[self.current_player]) + self.current_score < 100:
             print(f"{self.current_player}'s turn")
             print(f"{self.current_player}'s total score:", end=' ')
             print(f"{self.total_score[self.current_player]}")
@@ -120,3 +120,6 @@ class SinglePlayer(cmd.Cmd):
                     self.current_score += roll_pc
             else:
                 self.do_hold("")
+
+    def do_hack(self, args):
+        self.current_score += 90
