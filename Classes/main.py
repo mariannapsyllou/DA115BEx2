@@ -6,7 +6,6 @@ import Highscores
 
 
 class MainShell(cmd.Cmd):
-    menu.main_menu()
     prompt = ">>> "
 
     def __init__(self):
@@ -15,6 +14,7 @@ class MainShell(cmd.Cmd):
         self.player2 = None
         self.difficulty = None
         self.highscore_name = None
+        menu.main_menu()
 
     def do_main(self, args):
         menu.main_menu()

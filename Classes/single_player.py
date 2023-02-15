@@ -3,7 +3,7 @@ import cmd
 import dice_visual
 import time
 import Highscores
-
+import main
 
 class SinglePlayer(cmd.Cmd):
     prompt = ">>>"
@@ -126,3 +126,7 @@ class SinglePlayer(cmd.Cmd):
 
     def do_hack(self, args):
         self.current_score += 90
+
+    def do_quit(self, args):
+        shell = main.MainShell()
+        shell.cmdloop()

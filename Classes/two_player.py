@@ -1,6 +1,7 @@
 import cmd
 import random
 import dice_visual
+import main
 import Highscores
 
 
@@ -55,8 +56,8 @@ class TwoPlayer(cmd.Cmd):
         self.current_score += 90
 
     def game_menu(self):
-        while max(self.total_score.values()) < 100 and \
-                max(self.total_score.values()) + self.current_score < 100:
+        while self.total_score[self.current_player] < 100 and \
+                (self.total_score[self.current_player]) + self.current_score < 100:
             print(f"{self.current_player}'s turn")
             print(f"{self.current_player}'s total score:", end=' ')
             print(f"{self.total_score[self.current_player]}")
@@ -65,3 +66,7 @@ class TwoPlayer(cmd.Cmd):
         print(f"{max(self.total_score, key=self.total_score.get)} wins!")
         high = Highscores.Highscores()
         high.update(self.current_player)
+
+    def do_quit(self, args):
+        shell = main.MainShell()
+        shell.cmdloop()
