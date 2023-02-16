@@ -12,9 +12,10 @@ class Highscores:
     def scores(self, player):
         score_dict = self.dict_results()
         if player in score_dict:
-            print(f"{player} you have won the game {score_dict.get(player)} times!!")
+            print(f"{player} you have won the game\
+                {score_dict.get(player)} times!!")
         else:
-            print("You have not any registered scores yet")
+            print("This user has not been registered")
 
     def view_instructions(self):
         with open("Instructions.txt", "r") as filename:

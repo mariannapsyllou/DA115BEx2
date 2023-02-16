@@ -18,7 +18,6 @@ class SinglePlayer(cmd.Cmd):
         self.current_score = 0
         self.game_menu()
 
-
     def easy(self) -> str:
         """
         Computer rolls till 20 points and then holds
