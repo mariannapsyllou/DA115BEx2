@@ -36,7 +36,7 @@ class MainShell(cmd.Cmd):
 
     def do_change(self, args):
         pass
-    
+
     def do_view(self, args):
         high = Highscores.Highscores()
         high.view_instructions()
@@ -48,4 +48,3 @@ class MainShell(cmd.Cmd):
 
 if __name__ == "__main__":
     MainShell().cmdloop()
-

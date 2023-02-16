@@ -1,4 +1,4 @@
-class Highscores():
+class Highscores:
 
     def dict_results(self):
         result_dict = {}

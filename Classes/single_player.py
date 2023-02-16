@@ -39,7 +39,7 @@ class SinglePlayer(cmd.Cmd):
             choice = "h"
         return choice
 
-    def difficult(self, current_score: int):
+    def difficult(self):
         """
         Computer will roll if either player has score of 71
         Otherwise hold on 21 plus the difference between scores
@@ -118,7 +118,7 @@ class SinglePlayer(cmd.Cmd):
         elif self._difficulty == 2:
             computer_choice = self.intermediate()
         else:
-            computer_choice = self.difficult(self.current_score)
+            computer_choice = self.difficult()
         if self.current_player == self.player2:
             if computer_choice == "r":
                 roll_pc = random.randint(1, 6)
@@ -132,7 +132,7 @@ class SinglePlayer(cmd.Cmd):
                 self.do_hold("")
 
     def do_hack(self, args):
-        self.current_score += 90
+        self.total_score[self.current_player] += 90
 
     def do_new(self, args):
         self.total_score = {self.player1: 0, self.player2: 0}

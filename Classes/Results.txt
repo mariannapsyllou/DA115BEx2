@@ -4,3 +4,5 @@ Computer,4
 Whatever,1
 Nick,1
 agge,4
+m,5
+M,1
