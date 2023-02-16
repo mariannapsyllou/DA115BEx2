@@ -13,7 +13,7 @@ class SinglePlayer(cmd.Cmd):
         self.player1 = player1
         self.player2 = "Computer"
         self.current_player = player1
-        self.total_score = {player1: 0, self.player2: 80}
+        self.total_score = {player1: 0, self.player2: 0}
         self._difficulty = difficulty
         self.current_score = 0
         self.game_menu()
@@ -133,6 +133,11 @@ class SinglePlayer(cmd.Cmd):
 
     def do_hack(self, args):
         self.current_score += 90
+
+    def do_new(self, args):
+        self.total_score = {self.player1: 0, self.player2: 0}
+        self.current_score = 0
+        self.cmdloop()
 
     def do_quit(self, args):
         shell = main.MainShell()

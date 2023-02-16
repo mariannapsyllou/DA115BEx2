@@ -68,6 +68,11 @@ class TwoPlayer(cmd.Cmd):
         high.update(self.current_player)
         self.do_quit("")
 
+    def do_new(self, args):
+        self.total_score = {self.player1: 0, self.player2: 0}
+        self.current_score = 0
+        self.cmdloop()
+
     def do_quit(self, args):
         shell = main.MainShell()
         shell.cmdloop()

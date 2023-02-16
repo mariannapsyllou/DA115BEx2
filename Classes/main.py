@@ -3,15 +3,15 @@ import cmd
 import two_player
 import single_player
 import Highscores
-
+import Player
 
 class MainShell(cmd.Cmd):
     prompt = ">>> "
 
     def __init__(self):
         super().__init__()
-        self.player1 = None
-        self.player2 = None
+        self.player1 = Player.Player(None)
+        self.player2 = Player.Player(None)
         self.difficulty = None
         self.highscore_name = None
         menu.main_menu()
