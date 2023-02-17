@@ -63,7 +63,7 @@ class MainShell(cmd.Cmd):
         high = Highscores.Highscores()
         high.view_instructions()
 
-    def do_exit(self, _):
+    def do_exit(self, args):
         """
         Prints exit message and exits program
         """
