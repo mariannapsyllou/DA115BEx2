@@ -2,7 +2,7 @@ class Highscores:
 
     def dict_results(self):
         result_dict = {}
-        with open("Results.txt", 'r') as filename:
+        with open("Results.txt", 'r', encoding="utf8") as filename:
             for line in filename:
                 line = line.strip()
                 key, value = line.split(",")
@@ -18,7 +18,7 @@ class Highscores:
             print("This user has not been registered")
 
     def view_instructions(self):
-        with open("Instructions.txt", "r") as filename:
+        with open("Instructions.txt", "r", encoding="utf8") as filename:
             for line in filename:
                 print(line)
 
@@ -28,6 +28,6 @@ class Highscores:
             update_dict[player] += 1
         else:
             update_dict[player] = 1
-        with open("Results.txt", "w") as filename:
+        with open("Results.txt", "w", encoding="utf8") as filename:
             for key, value in update_dict.items():
                 filename.write(f"{key},{str(value)}\n")

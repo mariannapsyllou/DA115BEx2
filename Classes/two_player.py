@@ -6,6 +6,9 @@ import Highscores
 
 
 class TwoPlayer(cmd.Cmd):
+    """
+    responsible for the main game functionality
+    """
     prompt = ">>> "
 
     def __init__(self, player1, player2):
@@ -53,11 +56,12 @@ class TwoPlayer(cmd.Cmd):
         self.game_menu()
 
     def do_hack(self, args):
-        self.current_score += 90
+        self.current_score += 5
 
     def game_menu(self):
         while self.total_score[self.current_player] < 100 and \
-                (self.total_score[self.current_player]) + self.current_score < 100:
+                (self.total_score[self.current_player])\
+                + self.current_score < 100:
             print(f"{self.current_player}'s turn")
             print(f"{self.current_player}'s total score:", end=' ')
             print(f"{self.total_score[self.current_player]}")

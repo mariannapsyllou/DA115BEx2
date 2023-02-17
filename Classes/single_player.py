@@ -5,6 +5,7 @@ import time
 import Highscores
 import main
 
+
 class SinglePlayer(cmd.Cmd):
     prompt = ">>>"
 
@@ -44,15 +45,14 @@ class SinglePlayer(cmd.Cmd):
         Otherwise hold on 21 plus the difference between scores
         divided by 8
         """
-        difference = max(self.total_score.values()) - min(self.total_score.values())
+        difference = max(self.total_score.values())\
+            - min(self.total_score.values())
         if max(self.total_score.values()) >= 71 or self.current_score == 0:
             return "r"
-        else:
-            if self.current_score >= \
-                    21 + (difference//8):
-                return "h"
-            else:
-                return "r"
+        if self.current_score >= \
+                21 + (difference//8):
+            return "h"
+        return "r"
 
     def display_dice_visual(self, roll):
         if roll == 1:
