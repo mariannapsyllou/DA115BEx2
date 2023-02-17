@@ -21,13 +21,13 @@ class MainShell(cmd.Cmd):
         self.highscore_name = None
         menu.main_menu()
 
-    def do_main(self, args):
+    def do_main(self, _):
         """
         Prints the main menu
         """
         menu.main_menu()
 
-    def do_two(self, args):
+    def do_two(self, _):
         """
         prompts user for two names,
         then starts two-player mode
@@ -36,7 +36,7 @@ class MainShell(cmd.Cmd):
         # create players
         two_player.TwoPlayer(self.player1, self.player2)
 
-    def do_single(self, args):
+    def do_single(self, _):
         """
         Prompts user for name and difficulty,
         then starts single-player mode
@@ -47,7 +47,7 @@ class MainShell(cmd.Cmd):
         except ValueError as r:
             print("Please pick a number")
 
-    def do_highscore(self, args):
+    def do_highscore(self, _):
         """
         Asks for name and prints highscore
         of entered name if registered
@@ -56,14 +56,14 @@ class MainShell(cmd.Cmd):
         high = Highscores.Highscores()
         high.scores(self.highscore_name)
 
-    def do_view(self, args):
+    def do_view(self, _):
         """
         Prints the instruction for the program
         """
         high = Highscores.Highscores()
         high.view_instructions()
 
-    def do_exit(self, args):
+    def do_exit(self, _):
         """
         Prints exit message and exits program
         """

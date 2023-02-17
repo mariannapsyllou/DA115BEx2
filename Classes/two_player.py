@@ -20,7 +20,7 @@ class TwoPlayer(cmd.Cmd):
         self.current_score = 0
         self.game_menu()
 
-    def do_roll(self, args):
+    def do_roll(self, _):
         roll = random.randint(1, 6)
         if roll == 1:
             dice_visual.dice1()
@@ -46,16 +46,16 @@ class TwoPlayer(cmd.Cmd):
             self.current_score += 6
         self.game_menu()
 
-    def do_hold(self, args):
+    def do_hold(self, _):
         self.total_score[self.current_player] += self.current_score
         self.current_score = 0
         if self.current_player == self.player1:
             self.current_player = self.player2
-        else:
             self.current_player = self.player1
-        self.game_menu()
+        else:
+            self.game_menu()
 
-    def do_hack(self, args):
+    def do_hack(self, _):
         self.current_score += 5
 
     def game_menu(self):
@@ -72,11 +72,11 @@ class TwoPlayer(cmd.Cmd):
         high.update(self.current_player)
         self.do_quit("")
 
-    def do_new(self, args):
+    def do_new(self, _):
         self.total_score = {self.player1: 0, self.player2: 0}
         self.current_score = 0
         self.cmdloop()
 
-    def do_quit(self, args):
+    def do_quit(self, _):
         shell = main.MainShell()
         shell.cmdloop()
