@@ -1,3 +1,7 @@
+"""
+This modules holds the main menus
+"""
+
 
 def main_menu() -> None:
     """prints main menu and returns choice"""
@@ -39,4 +43,3 @@ def highscore_getname() -> str:
     name_highscore = str(
         input("Enter the name of a player to view highscore: "))
     return name_highscore
-
