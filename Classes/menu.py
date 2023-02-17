@@ -1,8 +1,6 @@
 """
 This modules holds the main menus
 """
-
-
 def main_menu() -> None:
     """prints main menu and returns choice"""
     print("Welcome! Enter help to see commands")
@@ -31,10 +29,16 @@ def set_difficulty() -> str:
     print("Pick a difficulty")
     print("1- Easy\n2- Intermediate\n3- Hard")
     print("(1, 2 or 3)")
-    difficulty = str(input("Choice: "))
+    difficulty = int(input("Choice: "))
 
-    difficulty = "easy" if difficulty == "1" \
-        else "intermediate" if difficulty == "2" else "hard"
+    while difficulty > 3:
+        print("Pick a number between 1-3")
+        difficulty = int(input("Choice: "))
+
+
+    difficulty = "easy" if difficulty == 1 \
+        else "intermediate" if difficulty == 2 else "hard"
+
     return difficulty
 
 

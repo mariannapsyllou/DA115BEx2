@@ -41,8 +41,11 @@ class MainShell(cmd.Cmd):
         Prompts user for name and difficulty,
         then starts single-player mode
         """
-        self.player1, self.difficulty = menu.single_player_menu()
-        single_player.SinglePlayer(self.player1, self.difficulty)
+        try:
+            self.player1, self.difficulty = menu.single_player_menu()
+            single_player.SinglePlayer(self.player1, self.difficulty)
+        except ValueError as r:
+            print("Please pick a number")
 
     def do_highscore(self, args):
         """
