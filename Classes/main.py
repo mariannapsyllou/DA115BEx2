@@ -44,7 +44,7 @@ class MainShell(cmd.Cmd):
         try:
             self.player1, self.difficulty = menu.single_player_menu()
             single_player.SinglePlayer(self.player1, self.difficulty)
-        except ValueError as r:
+        except ValueError:
             print("Please pick a number")
 
     def do_highscore(self, _):
