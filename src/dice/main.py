@@ -1,9 +1,9 @@
 import cmd
+import sys
 import menu
 import two_player
 import single_player
 import Highscores
-import Player
 
 
 class MainShell(cmd.Cmd):
@@ -15,8 +15,8 @@ class MainShell(cmd.Cmd):
 
     def __init__(self):
         super().__init__()
-        self.player1 = Player.Player(None)
-        self.player2 = Player.Player(None)
+        self.player1 = None
+        self.player2 = None
         self.difficulty = None
         self.highscore_name = None
         menu.main_menu()
@@ -33,7 +33,6 @@ class MainShell(cmd.Cmd):
         then starts two-player mode
         """
         self.player1, self.player2 = menu.two_player_menu()
-        # create players
         two_player.TwoPlayer(self.player1, self.player2)
 
     def do_single(self, _):
@@ -67,8 +66,8 @@ class MainShell(cmd.Cmd):
         """
         Prints exit message and exits program
         """
-        print("Thank you for playing")
-        exit()
+        menu.exit_menu()
+        sys.exit()
 
 
 if __name__ == "__main__":
