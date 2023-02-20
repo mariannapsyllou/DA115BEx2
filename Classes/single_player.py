@@ -71,7 +71,7 @@ class SinglePlayer(cmd.Cmd):
         else:
             dice_visual.dice6()
 
-    def do_roll(self, args):
+    def do_roll(self, _):
         """
         Method that handles the game rolling when
         a user is playing against the Computer

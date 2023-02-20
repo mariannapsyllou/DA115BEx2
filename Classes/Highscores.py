@@ -54,4 +54,3 @@ class Highscores:
         with open("Results.txt", "w", encoding="utf8") as filename:
             for key, value in update_dict.items():
                 filename.write(f"{key},{str(value)}\n")
-
