@@ -19,13 +19,13 @@ class MainShell(cmd.Cmd):
         self.player2 = None
         self.difficulty = None
         self.highscore_name = None
-        menu.main_menu()
+        print(menu.main_menu())
 
     def do_main(self, _):
         """
         Prints the main menu
         """
-        menu.main_menu()
+        print(menu.main_menu())
 
     def do_two(self, _):
         """

@@ -13,7 +13,7 @@ class Test_single_player(unittest.TestCase):
 
     def test_do_roll_one(self):
         random.seed(1)
-        self.single_player.do_roll("")
+        single_player.SinglePlayer.do_roll("", "")
         self.assertEqual(self.single_player.current_score, 0)
         self.assertEqual(
             self.single_player.current_player,
