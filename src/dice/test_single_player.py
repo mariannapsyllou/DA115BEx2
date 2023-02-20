@@ -1,6 +1,6 @@
 import unittest
 import random
-from Classes import single_player
+import single_player
 
 
 class Test_single_player(unittest.TestCase):
