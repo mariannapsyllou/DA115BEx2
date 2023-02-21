@@ -3,11 +3,13 @@ This modules holds the main menus
 """
 
 
-def main_menu() -> None:
+def main_menu() -> str:
     """prints main menu and returns choice"""
-    print("Welcome! Enter help to see commands")
-    print("1- Two players\n2- Single-Player"
-          "\n3- Show highscore\n4- Exit")
+    output = ""
+    output += "Welcome! Enter help to see commands\n"
+    output += "1- Two players\n2- Single-Player\n"
+    output += "3- Show highscore\n4- Exit"
+    return output
 
 
 def two_player_menu() -> tuple:
@@ -39,4 +41,3 @@ def set_difficulty() -> str:
     difficulty = "easy" if difficulty == 1 \
         else "intermediate" if difficulty == 2 else "hard"
     return difficulty
-

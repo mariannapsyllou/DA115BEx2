@@ -18,13 +18,13 @@ class shell(cmd.Cmd):
         self.player1 = None
         self.player2 = None
     #    self.intelligence = Intelligence.Intelligence()
-        menu.main_menu()
+        print(menu.main_menu())
 
     def do_main(self, _):
         """
         Prints the main menu
         """
-        menu.main_menu()
+        print(menu.main_menu())
 
     def do_double(self, _):
         name1, name2 = menu.two_player_menu()
