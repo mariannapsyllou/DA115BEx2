@@ -45,6 +45,12 @@ class shell(cmd.Cmd):
         player1 = Player.Player(name1)
         self.game = game.Game(player1, "Computer", difficulty)
 
+    def do_view(self, _):
+        """
+        Prints the instruction for the program
+        """
+        high = Highscores.Highscores()
+        high.view_instructions()
 
     def do_exit(self, _):
         """
@@ -52,6 +58,9 @@ class shell(cmd.Cmd):
         """
         print("Thank you for playing")
         sys.exit()
+
+    def do_hack(self, _):
+        self.game.hack()
 
 
 
