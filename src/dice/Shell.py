@@ -62,6 +62,18 @@ class shell(cmd.Cmd):
     def do_hack(self, _):
         self.game.hack()
 
+    def do_new(self, _):
+        """
+        Sets the total and current scores to zero
+        So the game restarts.
+        """
+        print("Your game is now restarted! Roll or hold!!")
+        self.game.total_score = {self.game.player1: 0, self.game.player2: 0}
+        self.game.current_score = 0
+
+
+
+
 
 
 
