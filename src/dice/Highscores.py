@@ -25,11 +25,8 @@ class Highscores:
         """
         score_dict = self.dict_results()
         if player in score_dict:
-            # prints weird
-            print(
-                f"{player} you have won the game \
-                {score_dict.get(player)} times!!"
-                )
+            print(f"{player} you have won the game"
+                  f"{score_dict.get(player)} times!!")
         else:
             print("This user has not been registered")
 
