@@ -12,7 +12,7 @@ class Intelligence():
         """
         Computer rolls till 20 points and then holds
         """
-        if self.score <= 10:
+        if self.score <= 20:
             return "r"
         return "h"
 
@@ -26,19 +26,11 @@ class Intelligence():
         return "h"
 
 
-    # def difficult(self):
-    #     """
-    #     Computer will roll if either player has score of 71
-    #     Otherwise hold on 21 plus the difference between scores
-    #     divided by 8
-    #     """
-    #     difference = max(self.game.total_score.values())\
-    #         - min(self.game.total_score.values())
-    #     if max(self.game.total_score.values()) >= 71 or \
-    #             self.game.current_score == 0:
-    #         self.game.roll()
-
-    #     if self.game.current_score >= \
-    #             21 + (difference//8):
-    #         self.game.hold()
-    #     self.game.roll()
+    def difficult(self):
+        """
+        Computer will roll if either player has score of 71
+        Otherwise hold on 21 plus the difference between scores
+        divided by 8
+        """
+        difference = max(self.game.total_score.values())\
+            - min(self.game.total_score.values())

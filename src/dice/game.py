@@ -22,7 +22,7 @@ class Game():
         self.game_menu()
 
     def roll(self):
-        roll = random.randint(2, 6)
+        roll = random.randint(1, 6)
         if roll == 1:
             dice_visual.dice1()
             self.current_score = 0
@@ -57,8 +57,8 @@ class Game():
             self.game_menu()
 
 
-    def do_hack(self):
-        self.current_score += 5
+    def hack(self):
+        self.total_score[self.current_player] += 50
 
     def game_menu(self):
         if self.total_score[self.current_player] < 100 and \
