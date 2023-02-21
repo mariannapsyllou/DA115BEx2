@@ -1,15 +1,14 @@
-import cmd
 import random
+import time
 import dice_visual
-import main
 import Highscores
+import Intelligence
 
 
-class TwoPlayer(cmd.Cmd):
+class Game():
     """
     responsible for the main game functionality
     """
-    prompt = ">>> "
 
     def __init__(self, player1, player2):
         super().__init__()
@@ -20,7 +19,7 @@ class TwoPlayer(cmd.Cmd):
         self.current_score = 0
         self.game_menu()
 
-    def do_roll(self, _):
+    def roll(self):
         roll = random.randint(1, 6)
         if roll == 1:
             dice_visual.dice1()
@@ -46,37 +45,50 @@ class TwoPlayer(cmd.Cmd):
             self.current_score += 6
         self.game_menu()
 
-    def do_hold(self, _):
+    def hold(self):
         self.total_score[self.current_player] += self.current_score
         self.current_score = 0
         if self.current_player == self.player1:
             self.current_player = self.player2
+        elif self.current_player == self.player2:
             self.current_player = self.player1
         else:
             self.game_menu()
 
-    def do_hack(self, _):
+    def do_hack(self):
         self.current_score += 5
 
     def game_menu(self):
-        while self.total_score[self.current_player] < 100 and \
+        if self.total_score[self.current_player] < 100 and \
                 (self.total_score[self.current_player])\
                 + self.current_score < 100:
             print(f"{self.current_player}'s turn")
             print(f"{self.current_player}'s total score:", end=' ')
             print(f"{self.total_score[self.current_player]}")
             print(f"Current round score: {self.current_score}")
-            self.cmdloop()
-        print(f"{max(self.total_score, key=self.total_score.get)} wins!")
-        high = Highscores.Highscores()
-        high.update(self.current_player)
-        self.do_quit("")
+            # if self.current_player == self.player2:
+            #     time.sleep(2.0)
+            #     self.game_pc()
+        else:
+            print(f"{max(self.total_score, key=self.total_score.get)} wins!")
+            high = Highscores.Highscores()
+            high.update(self.current_player)
 
-    def do_new(self, _):
-        self.total_score = {self.player1: 0, self.player2: 0}
-        self.current_score = 0
-        self.cmdloop()
-
-    def do_quit(self, _):
-        shell = main.MainShell()
-        shell.cmdloop()
+    # def game_pc(self):
+    #     if difficulty == 1:
+    #         computer_choice = self.intelligence.easy()
+    #     elif difficulty == 2:
+    #         computer_choice = self.intelligence.intermediate()
+    #     else:
+    #         computer_choice = self.intelligence.difficult()
+    #     if self.current_player == self.player2:
+    #         if computer_choice == "r":
+    #             roll_pc = random.randint(1, 6)
+    #             dice_visual(roll_pc)
+    #             if roll_pc == 1:
+    #                 self.current_score = 0
+    #                 self.current_player = self.player1
+    #             else:
+    #                 self.current_score += roll_pc
+    #         else:
+    #             self.hold()
