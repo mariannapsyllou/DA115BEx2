@@ -10,17 +10,19 @@ class Game():
     responsible for the main game functionality
     """
 
-    def __init__(self, player1, player2):
+    def __init__(self, player1, player2, difficulty):
         super().__init__()
         self.player1 = player1
         self.player2 = player2
+        self.difficulty = difficulty
         self.current_player = player1
         self.total_score = {player1: 0, player2: 0}
         self.current_score = 0
+        self.intelligence = Intelligence.Intelligence()
         self.game_menu()
 
     def roll(self):
-        roll = random.randint(1, 6)
+        roll = random.randint(2, 6)
         if roll == 1:
             dice_visual.dice1()
             self.current_score = 0
@@ -50,10 +52,10 @@ class Game():
         self.current_score = 0
         if self.current_player == self.player1:
             self.current_player = self.player2
-        elif self.current_player == self.player2:
-            self.current_player = self.player1
         else:
+            self.current_player = self.player1
             self.game_menu()
+
 
     def do_hack(self):
         self.current_score += 5
@@ -66,29 +68,25 @@ class Game():
             print(f"{self.current_player}'s total score:", end=' ')
             print(f"{self.total_score[self.current_player]}")
             print(f"Current round score: {self.current_score}")
-            # if self.current_player == self.player2:
-            #     time.sleep(2.0)
-            #     self.game_pc()
+            if self.current_player == "Computer":
+                time.sleep(2.0)
+                self.intelligence.score = self.current_score
+                self.game_pc()
         else:
             print(f"{max(self.total_score, key=self.total_score.get)} wins!")
             high = Highscores.Highscores()
             high.update(self.current_player)
 
-    # def game_pc(self):
-    #     if difficulty == 1:
-    #         computer_choice = self.intelligence.easy()
-    #     elif difficulty == 2:
-    #         computer_choice = self.intelligence.intermediate()
-    #     else:
-    #         computer_choice = self.intelligence.difficult()
-    #     if self.current_player == self.player2:
-    #         if computer_choice == "r":
-    #             roll_pc = random.randint(1, 6)
-    #             dice_visual(roll_pc)
-    #             if roll_pc == 1:
-    #                 self.current_score = 0
-    #                 self.current_player = self.player1
-    #             else:
-    #                 self.current_score += roll_pc
-    #         else:
-    #             self.hold()
+    def game_pc(self):
+        if self.difficulty == "easy":
+            choice = self.intelligence.easy()
+        elif self.difficulty == "intermediate":
+            choice = self.intelligence.intermediate()
+        else:
+            #choice = self.intelligence.difficult()
+            pass
+
+        if choice == "r":
+            self.roll()
+        else:
+            self.hold()
