@@ -41,3 +41,7 @@ def set_difficulty() -> str:
     difficulty = "easy" if difficulty == 1 \
         else "intermediate" if difficulty == 2 else "hard"
     return difficulty
+
+
+def highscore() -> str:
+    return str(input("Enter a name to view highscore: "))

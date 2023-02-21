@@ -19,7 +19,7 @@ class Game():
         self.total_score = {player1: 0, player2: 0}
         self.current_score = 0
         self.intelligence = Intelligence.Intelligence()
-        self.game_menu()
+        
 
     def roll(self):
         roll = random.randint(1, 6)
