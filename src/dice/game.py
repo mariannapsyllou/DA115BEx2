@@ -19,7 +19,7 @@ class Game():
         self.total_score = {player1: 0, player2: 0}
         self.current_score = 0
         self.intelligence = Intelligence.Intelligence()
-        
+
 
     def roll(self):
         roll = random.randint(1, 6)
@@ -71,6 +71,7 @@ class Game():
             if self.current_player == "Computer":
                 time.sleep(2.0)
                 self.intelligence.score = self.current_score
+                self.intelligence.max_score = self.total_score
                 self.game_pc()
         else:
             print(f"{max(self.total_score, key=self.total_score.get)} wins!")
@@ -83,8 +84,7 @@ class Game():
         elif self.difficulty == "intermediate":
             choice = self.intelligence.intermediate()
         else:
-            #choice = self.intelligence.difficult()
-            pass
+            choice = self.intelligence.difficult()
 
         if choice == "r":
             self.roll()

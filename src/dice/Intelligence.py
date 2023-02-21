@@ -7,6 +7,7 @@ class Intelligence():
         self.player1 = None
         self.player2 = "Computer"
         self.score = 0
+        self.max_score: dict = {}
 
     def easy(self) -> str:
         """
@@ -25,12 +26,15 @@ class Intelligence():
             return "r"
         return "h"
 
-
     def difficult(self):
         """
         Computer will roll if either player has score of 71
         Otherwise hold on 21 plus the difference between scores
         divided by 8
         """
-        difference = max(self.game.total_score.values())\
-            - min(self.game.total_score.values())
+        difference = max(self.max_score.values()) - min(self.max_score.values())
+        if max(self.max_score.values()) >= 71:
+            return "r"
+        if self.score >= 21 + (difference / 8):
+            return "h"
+        return "r"
