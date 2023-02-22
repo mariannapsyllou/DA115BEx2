@@ -1,7 +1,14 @@
-import game
+"""
+Handles the methods of the Intelligence class
+"""
 
 
 class Intelligence():
+    """
+    Class that handles the different levels
+    of the game and prompts the Computer to
+    act according to the modules.
+    """
 
     def __init__(self) -> None:
         self.player1 = None

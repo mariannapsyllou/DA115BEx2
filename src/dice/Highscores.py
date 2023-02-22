@@ -1,3 +1,9 @@
+"""
+Handles the methods of the Highscore class
+"""
+
+
+
 class Highscores:
     """
     Class Highscores holds methods to view results

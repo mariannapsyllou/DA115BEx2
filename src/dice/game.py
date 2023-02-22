@@ -22,6 +22,10 @@ class Game():
 
 
     def roll(self):
+        """
+        Method that handles the rolling of the dice!
+        and switch players when roll is equal to 1
+        """
         roll = random.randint(1, 6)
         if roll == 1:
             dice_visual.dice1()
@@ -48,6 +52,11 @@ class Game():
         self.game_menu()
 
     def hold(self):
+        """
+        Method that handles the holding, in case the player wants
+        to stop rolling and save his current score to his total
+        score. After holding is pressed the method switch players.
+        """
         self.total_score[self.current_player] += self.current_score
         self.current_score = 0
         if self.current_player == self.player1:
@@ -58,9 +67,18 @@ class Game():
 
 
     def hack(self):
+        """
+        Increase the current player total score by 50 points
+        so he can win faster.
+        """
         self.total_score[self.current_player] += 50
 
     def game_menu(self):
+        """
+        he method finds and prints the winner.
+        If winner was not found prints the menu of whose player
+        turn is.
+        """
         if self.total_score[self.current_player] < 100 and \
                 (self.total_score[self.current_player])\
                 + self.current_score < 100:
@@ -79,6 +97,11 @@ class Game():
             high.update(self.current_player)
 
     def game_pc(self):
+        """
+        The method handles the game when the second player is
+        the Computer. Checks the difficulty level and act
+        appropriate according to that.
+        """
         if self.difficulty == "easy":
             choice = self.intelligence.easy()
         elif self.difficulty == "intermediate":

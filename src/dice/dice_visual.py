@@ -1,4 +1,13 @@
+"""
+Visual representation of the die faces
+"""
+
+
 def dice1():
+    """
+    Prints the visual represanation of
+    number 1
+    """
     print(" -----------")
     print("|    |     |")
     print("|    |     |")
@@ -7,6 +16,10 @@ def dice1():
 
 
 def dice2():
+    """
+    Prints the visual represanation of
+    number 2
+    """
     print(" ----------")
     print("|   ____  |")
     print("|   ____| |")
@@ -15,6 +28,10 @@ def dice2():
 
 
 def dice3():
+    """
+    Prints the visual represanation of
+    number 3
+    """
     print(" ----------")
     print("|  ____   |")
     print("|  ____|  |")
@@ -23,6 +40,10 @@ def dice3():
 
 
 def dice4():
+    """
+    Prints the visual represanation of
+    number 4
+    """
     print(" ----------")
     print("| |    |  |")
     print("| |____|  |")
@@ -31,6 +52,10 @@ def dice4():
 
 
 def dice5():
+    """
+    Prints the visual represanation of
+    number 5
+    """
     print(" ----------")
     print("|  ____    |")
     print("| |____    |")
@@ -39,6 +64,10 @@ def dice5():
 
 
 def dice6():
+    """
+    Prints the visual represanation of
+    number 6
+    """
     print(" -----------")
     print("|  ___     |")
     print("| |___     |")

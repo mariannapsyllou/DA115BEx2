@@ -44,4 +44,8 @@ def set_difficulty() -> str:
 
 
 def highscore() -> str:
+    """
+        Prompts the user to input a name in order to
+        see his highscore
+        """
     return str(input("Enter a name to view highscore: "))
