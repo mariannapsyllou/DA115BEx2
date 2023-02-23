@@ -24,7 +24,6 @@ class Intelligence():
             return "r"
         return "h"
 
-
     def intermediate(self) -> str:
         """
         Computer rolls till 25 points and then holds
@@ -39,7 +38,8 @@ class Intelligence():
         Otherwise hold on 21 plus the difference between scores
         divided by 8
         """
-        difference = max(self.max_score.values()) - min(self.max_score.values())
+        difference = max(
+            self.max_score.values()) - min(self.max_score.values())
         if max(self.max_score.values()) >= 71:
             return "r"
         if self.score >= 21 + (difference / 8):

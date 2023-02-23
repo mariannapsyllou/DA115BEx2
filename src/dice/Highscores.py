@@ -1,7 +1,7 @@
+from typing import Dict
 """
 Handles the methods of the Highscore class
 """
-
 
 
 class Highscores:
@@ -10,18 +10,21 @@ class Highscores:
     update the scores of users and view game
     instructions
     """
-    def dict_results(self):
+    def dict_results(self) -> Dict[str, int]:
         """
         Opens the file where previous results are stored
         split them and put them in a dictionary
         where key is the name and value the previous score
         """
         result_dict = {}
-        with open("Results.txt", "r", encoding="utf8") as filename:
-            for line in filename:
-                line = line.strip()
-                key, value = line.split(",")
-                result_dict[key] = int(value)
+        try:
+            with open("Results.txt", "r", encoding="utf8") as filename:
+                for line in filename:
+                    line = line.strip()
+                    key, value = line.split(",")
+                    result_dict[key] = int(value)
+        except FileNotFoundError:
+            print("Something went wrong with the file")
         return result_dict
 
     def scores(self, player):
@@ -41,9 +44,12 @@ class Highscores:
         Opens a txt file with instructions of the game
         and prints them for the user if requested
         """
-        with open("Instructions.txt", "r", encoding="utf8") as filename:
-            for line in filename:
-                print(line)
+        try:
+            with open("Instructions.txt", "r", encoding="utf8") as filename:
+                for line in filename:
+                    print(line)
+        except FileNotFoundError:
+            print("Something went wrong with the file")
 
     def update(self, player):
         """

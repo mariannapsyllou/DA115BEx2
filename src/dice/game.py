@@ -20,7 +20,6 @@ class Game():
         self.current_score = 0
         self.intelligence = Intelligence.Intelligence()
 
-
     def roll(self):
         """
         Method that handles the rolling of the dice!
@@ -64,7 +63,6 @@ class Game():
         else:
             self.current_player = self.player1
             self.game_menu()
-
 
     def hack(self):
         """

@@ -39,6 +39,7 @@ class shell(cmd.Cmd):
         self.player1 = Player.Player(name1)
         self.player2 = Player.Player(name2)
         self.game = game.Game(self.player1, self.player2, None)
+        self.game.game_menu()
 
     def do_roll(self, _):
         """
@@ -66,6 +67,7 @@ class shell(cmd.Cmd):
         name1, difficulty = menu.single_player_menu()
         player1 = Player.Player(name1)
         self.game = game.Game(player1, "Computer", difficulty)
+        self.game.game_menu()
 
     def do_view(self, _):
         """
