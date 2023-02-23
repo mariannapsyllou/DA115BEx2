@@ -1,5 +1,5 @@
 """
-This modules holds the main menus
+This module holds the main menus
 """
 
 

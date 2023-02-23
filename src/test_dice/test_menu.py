@@ -12,18 +12,25 @@ class TestMenus(unittest.TestCase):
         output += "3- Show highscore\n4- Exit"
         self.assertEqual(menu.main_menu(), output)
 
-    @patch('builtins.input', side_effect=['name1', 'name2'])
+    @patch('builtins.input', side_effect=["name1", "name2"])
     def test_two_player_names(self, mock_input) -> None:
         player1, player2 = menu.two_player_menu()
-        self.assertEqual(player1, 'name1')
-        self.assertEqual(player2, 'name2')
+        self.assertEqual(player1, "name1")
+        self.assertEqual(player2, "name2")
 
-    @patch('builtins.input', side_effect=['player1', '1'])
-    @patch('src.dice.menu.set_difficulty', return_value='easy')
+    @patch('builtins.input', side_effect=["player1", "1"])
+    @patch('src.dice.menu.set_difficulty', return_value="easy")
     def test_single_player_name_and_difficulty(self, mock_set_difficulty, mock_input) -> None:
         player1, difficulty = menu.single_player_menu()
-        self.assertEqual(player1, 'player1')
-        self.assertEqual(difficulty, 'easy')
+        self.assertEqual(player1, "player1")
+        self.assertEqual(difficulty, "easy")
+
+    @patch('builtins.input', side_effect=["name1"])
+    def test_highscore_menu(self, mock_input):
+        name1 = menu.highscore()
+        self.assertEqual(name1, "name1")
+
+
 
 
 if __name__ == "__main__":
