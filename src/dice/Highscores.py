@@ -1,4 +1,3 @@
-from typing import Dict
 """
 Handles the methods of the Highscore class
 """
@@ -10,7 +9,7 @@ class Highscores:
     update the scores of users and view game
     instructions
     """
-    def dict_results(self) -> Dict[str, int]:
+    def dict_results(self) -> dict:
         """
         Opens the file where previous results are stored
         split them and put them in a dictionary
@@ -27,7 +26,7 @@ class Highscores:
             print("Something went wrong with the file")
         return result_dict
 
-    def scores(self, player):
+    def scores(self, player) -> None:
         """
         Prints the name requested and how many times they won
         If its their first time it prints a message
@@ -39,7 +38,7 @@ class Highscores:
         else:
             print("This user has not been registered")
 
-    def view_instructions(self):
+    def view_instructions(self) -> None:
         """
         Opens a txt file with instructions of the game
         and prints them for the user if requested
@@ -51,7 +50,7 @@ class Highscores:
         except FileNotFoundError:
             print("Something went wrong with the file")
 
-    def update(self, player):
+    def update(self, player) -> None:
         """
         Updates the dictionary with the new wins
         of the user.

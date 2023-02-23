@@ -32,7 +32,7 @@ class Intelligence():
             return "r"
         return "h"
 
-    def difficult(self):
+    def difficult(self) -> str:
         """
         Computer will roll if either player has score of 71
         Otherwise hold on 21 plus the difference between scores

@@ -3,7 +3,7 @@ Visual representation of the die faces
 """
 
 
-def dice1():
+def dice1() -> None:
     """
     Prints the visual represanation of
     number 1
@@ -15,7 +15,7 @@ def dice1():
     print(" -----------")
 
 
-def dice2():
+def dice2() -> None:
     """
     Prints the visual represanation of
     number 2
@@ -27,7 +27,7 @@ def dice2():
     print(" ----------")
 
 
-def dice3():
+def dice3() -> None:
     """
     Prints the visual represanation of
     number 3
@@ -39,7 +39,7 @@ def dice3():
     print(" ----------")
 
 
-def dice4():
+def dice4() -> None:
     """
     Prints the visual represanation of
     number 4
@@ -51,7 +51,7 @@ def dice4():
     print(" ----------")
 
 
-def dice5():
+def dice5() -> None:
     """
     Prints the visual represanation of
     number 5
@@ -63,7 +63,7 @@ def dice5():
     print(" ----------")
 
 
-def dice6():
+def dice6() -> None:
     """
     Prints the visual represanation of
     number 6

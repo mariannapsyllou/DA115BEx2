@@ -12,14 +12,14 @@ class Player:
     def __init__(self, name):
         self.name = name
 
-    def name(self):
+    def name(self) -> str:
         """
         Setter for the attribute name. In case
         the user wishes to change his name.
         """
         return self.name
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         To string method for printing
         the Player objects.

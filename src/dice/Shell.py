@@ -24,13 +24,13 @@ class shell(cmd.Cmd):
         self.intelligence = Intelligence.Intelligence()
         print(menu.main_menu())
 
-    def do_main(self, _):
+    def do_main(self, _) -> None:
         """
         Prints the main menu
         """
         print(menu.main_menu())
 
-    def do_double(self, _):
+    def do_double(self, _) -> None:
         """
         Outputs the menu for 2 player game
         and creates Players with their names
@@ -41,7 +41,7 @@ class shell(cmd.Cmd):
         self.game = game.Game(self.player1, self.player2, None)
         self.game.game_menu()
 
-    def do_roll(self, _):
+    def do_roll(self, _) -> None:
         """
         Handles the rolling of the dice
         by calling the function roll from
@@ -49,7 +49,7 @@ class shell(cmd.Cmd):
         """
         self.game.roll()
 
-    def do_hold(self, _):
+    def do_hold(self, _) -> None:
         """
         Handles the holding of the game when
         player decides to save his score. It
@@ -59,7 +59,7 @@ class shell(cmd.Cmd):
         self.game.hold()
         self.game.game_menu()
 
-    def do_single(self, _):
+    def do_single(self, _) -> None:
         """
         Outputs the menu when player is playing against
         the  computer and create a Player with his name
@@ -69,28 +69,28 @@ class shell(cmd.Cmd):
         self.game = game.Game(player1, "Computer", difficulty)
         self.game.game_menu()
 
-    def do_view(self, _):
+    def do_view(self, _) -> None:
         """
         Prints the instructions for the program
         """
         high = Highscores.Highscores()
         high.view_instructions()
 
-    def do_exit(self, _):
+    def do_exit(self, _) -> None:
         """
         Prints exit message and exits program
         """
         print("Thank you for playing")
         sys.exit()
 
-    def do_hack(self, _):
+    def do_hack(self, _) -> None:
         """
         Allows current player to hack the game by
         adding 50 points to his total score.
         """
         self.game.hack()
 
-    def do_new(self, _):
+    def do_new(self, _) -> None:
         """
         Sets the total and current scores to zero
         So the game restarts.
@@ -99,7 +99,7 @@ class shell(cmd.Cmd):
         self.game.total_score = {self.game.player1: 0, self.game.player2: 0}
         self.game.current_score = 0
 
-    def do_highscore(self, _):
+    def do_highscore(self, _) -> None:
         """
         The function asks from the user to input a name and returns
         how many times the have won the game!
