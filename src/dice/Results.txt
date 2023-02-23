@@ -1,8 +1,7 @@
 Erik,20
-Marianna,6
+Marianna,3
 Computer,4
 Whatever,1
 Nick,1
 mar,1
-axel,1
 axel,1

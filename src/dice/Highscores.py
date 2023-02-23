@@ -1,3 +1,4 @@
+import Player
 """
 Handles the methods of the Highscore class
 """
@@ -9,6 +10,7 @@ class Highscores:
     update the scores of users and view game
     instructions
     """
+
     def dict_results(self) -> dict:
         """
         Opens the file where previous results are stored
@@ -50,16 +52,17 @@ class Highscores:
         except FileNotFoundError:
             print("Something went wrong with the file")
 
-    def update(self, player) -> None:
+    def update(self, player: Player) -> None:
         """
         Updates the dictionary with the new wins
         of the user.
         """
         update_dict = self.dict_results()
-        if player in update_dict:
-            update_dict[player] += 1
+        name = player.name
+        if name in update_dict:
+            update_dict[name] += 1
         else:
-            update_dict[player] = 1
+            update_dict[name] = 1
         with open("Results.txt", "w", encoding="utf8") as filename:
             for key, value in update_dict.items():
-                filename.write(f"{key},{str(value)}\n")
+                filename.write(f"{key},{value}\n")
