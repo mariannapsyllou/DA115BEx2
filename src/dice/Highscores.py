@@ -64,5 +64,6 @@ class Highscores:
         else:
             update_dict[name] = 1
         with open("Results.txt", "w", encoding="utf8") as filename:
-            for key, value in update_dict.items():
-                filename.write(f"{key},{value}\n")
+            results_str = "".join([f"{key},{value}\n" for key, value
+                                  in update_dict.items()])
+            filename.write(results_str)
