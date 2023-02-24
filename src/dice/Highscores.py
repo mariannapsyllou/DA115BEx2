@@ -1,19 +1,18 @@
 import Player
-"""
-Handles the methods of the Highscore class
-"""
 
 
 class Highscores:
     """
-    Class Highscores holds methods to view results
-    update the scores of users and view game
+    Class Highscores holds methods to view results.
+
+    Update the scores of users and view game
     instructions
     """
 
     def dict_results(self) -> dict:
         """
-        Opens the file where previous results are stored
+        Will read from a file where results are stored and returns a dict.
+
         split them and put them in a dictionary
         where key is the name and value the previous score
         """
@@ -30,7 +29,8 @@ class Highscores:
 
     def scores(self, player) -> None:
         """
-        Prints the name requested and how many times they won
+        Will print the name requested and how many times they won.
+
         If its their first time it prints a message
         """
         score_dict = self.dict_results()
@@ -42,7 +42,8 @@ class Highscores:
 
     def view_instructions(self) -> None:
         """
-        Opens a txt file with instructions of the game
+        Will open a txt file with instructions of the game.
+
         and prints them for the user if requested
         """
         try:
@@ -52,11 +53,8 @@ class Highscores:
         except FileNotFoundError:
             print("Something went wrong with the file")
 
-    def update(self, player: Player) -> None:
-        """
-        Updates the dictionary with the new wins
-        of the user.
-        """
+    def update(self, player) -> None:
+        """Will update the dictionary with the new wins."""
         update_dict = self.dict_results()
         name = player.name
         if name in update_dict:
