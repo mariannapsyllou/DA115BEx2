@@ -63,7 +63,7 @@ class shell(cmd.Cmd):
         """
         Outputs the menu when player is playing against
         the  computer and create a Player with his name
-         """
+        """
         name1, difficulty = menu.single_player_menu()
         player1 = Player.Player(name1)
         self.game = game.Game(player1, "Computer", difficulty)

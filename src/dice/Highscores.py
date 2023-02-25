@@ -35,8 +35,7 @@ class Highscores:
         """
         score_dict = self.dict_results()
         if player in score_dict:
-            print(f"{player} you have won the game"
-                  f"{score_dict.get(player)} times!!")
+            print(f"{player} you have won the game" f"{score_dict.get(player)} times!!")
         else:
             print("This user has not been registered")
 
@@ -62,6 +61,7 @@ class Highscores:
         else:
             update_dict[name] = 1
         with open("Results.txt", "w", encoding="utf8") as filename:
-            results_str = "".join([f"{key},{value}\n" for key, value
-                                  in update_dict.items()])
+            results_str = "".join(
+                [f"{key},{value}\n" for key, value in update_dict.items()]
+            )
             filename.write(results_str)
