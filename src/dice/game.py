@@ -5,12 +5,11 @@ import Highscores
 import Intelligence
 
 
-class Game():
-    """
-    responsible for the main game functionality
-    """
+class Game:
+    """Class is responsible for the main game functionality."""
 
     def __init__(self, player1, player2, difficulty):
+        """Will initialize game-object."""
         super().__init__()
         self.player1 = player1
         self.player2 = player2
@@ -22,8 +21,9 @@ class Game():
 
     def roll(self) -> None:
         """
-        Method that handles the rolling of the dice!
-        and switch players when roll is equal to 1
+        Will handle the rolling of the dice.
+
+        Also calls dice_visual functions
         """
         roll = random.randint(1, 6)
         if roll == 1:
@@ -77,11 +77,12 @@ class Game():
         If winner was not found prints the menu of whose player
         turn is.
         """
-        if self.total_score[self.current_player] < 100 and \
-                (self.total_score[self.current_player])\
-                + self.current_score < 100:
+        if (
+            self.total_score[self.current_player] < 100
+            and (self.total_score[self.current_player]) + self.current_score < 100
+        ):
             print(f"{self.current_player}'s turn")
-            print(f"{self.current_player}'s total score:", end=' ')
+            print(f"{self.current_player}'s total score:", end=" ")
             print(f"{self.total_score[self.current_player]}")
             print(f"Current round score: {self.current_score}")
             if self.current_player == "Computer":

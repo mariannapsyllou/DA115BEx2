@@ -8,9 +8,7 @@ import Highscores
 
 
 class shell(cmd.Cmd):
-    """
-    Handles all the cmd/shell commands of the game
-    """
+    """Handles all the cmd/shell commands of the game."""
 
     prompt = ">>>"
 
@@ -22,87 +20,93 @@ class shell(cmd.Cmd):
         self.player1 = None
         self.player2 = None
         self.intelligence = Intelligence.Intelligence()
+        self.game_started = False
         print(menu.main_menu())
 
     def do_main(self, _) -> None:
-        """
-        Prints the main menu
-        """
+        """Will print the main menu."""
         print(menu.main_menu())
 
     def do_double(self, _) -> None:
-        """
-        Outputs the menu for 2 player game
-        and creates Players with their names
-        """
+        """Will start two_player mode with given player-names."""
         name1, name2 = menu.two_player_menu()
         self.player1 = Player.Player(name1)
         self.player2 = Player.Player(name2)
+        self.game_started = True
         self.game = game.Game(self.player1, self.player2, None)
         self.game.game_menu()
 
     def do_roll(self, _) -> None:
         """
-        Handles the rolling of the dice
-        by calling the function roll from
-        game class
+        Will allor user to roll the dice.
+
+        Calls the roll function of the game-class
         """
+        if not self.game_started:
+            print("Please start a game first (type 'double' or 'single')")
+            return
         self.game.roll()
 
     def do_hold(self, _) -> None:
         """
-        Handles the holding of the game when
-        player decides to save his score. It
-        does that by calling the hold function from
-        game class
+        Will allow the user to hold during the game.
+
+        Calls the hold function of the game-class
         """
+        if not self.game_started:
+            print("Please start a game first (type 'double' or 'single')")
+            return
         self.game.hold()
         self.game.game_menu()
 
     def do_single(self, _) -> None:
-        """
-        Outputs the menu when player is playing against
-        the  computer and create a Player with his name
-        """
+        """Will start single-player mode with given name."""
         name1, difficulty = menu.single_player_menu()
+        self.game_started = True
         player1 = Player.Player(name1)
         self.game = game.Game(player1, "Computer", difficulty)
         self.game.game_menu()
 
     def do_view(self, _) -> None:
-        """
-        Prints the instructions for the program
-        """
+        """Will print the instructions for the program."""
         high = Highscores.Highscores()
         high.view_instructions()
 
     def do_exit(self, _) -> None:
-        """
-        Prints exit message and exits program
-        """
+        """Will print the exit message and exits program."""
         print("Thank you for playing")
         sys.exit()
 
     def do_hack(self, _) -> None:
         """
-        Allows current player to hack the game by
-        adding 50 points to his total score.
+        Will allow current player to hack the game.
+
+        Calls the hack function of the game-class
         """
+        if not self.game_started:
+            print("Please start a game first (type 'double' or 'single')")
+            return
         self.game.hack()
 
     def do_new(self, _) -> None:
         """
-        Sets the total and current scores to zero
-        So the game restarts.
+        Will allow user to restart the game.
+
+        Sets all the scores to 0
         """
+        if not self.game_started:
+            print("Please start a game first (type 'double' or 'single')")
+            return
         print("Your game is now restarted! Roll or hold!!")
         self.game.total_score = {self.game.player1: 0, self.game.player2: 0}
         self.game.current_score = 0
 
     def do_highscore(self, _) -> None:
         """
-        The function asks from the user to input a name and returns
-        how many times the have won the game!
+        Will prompt user for a player-name.
+
+        Returns how many times given player has won
+        or if name is not found prints error-message
         """
         name = menu.highscore()
         self.highscore.scores(name)

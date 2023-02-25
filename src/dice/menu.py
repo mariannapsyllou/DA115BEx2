@@ -1,12 +1,8 @@
 import re
 
-"""
-This module holds the main menus
-"""
-
 
 def main_menu() -> str:
-    """prints main menu and returns choice"""
+    """Will print main menu and returns choice."""
     output = ""
     output += "Welcome! Enter help to see commands\n"
     output += "1- Two players\n2- Single-Player\n"
@@ -15,8 +11,11 @@ def main_menu() -> str:
 
 
 def two_player_menu() -> tuple:
-    """Prompts user to enter name of two players,
-    returns names in a tuple"""
+    """
+    Prompts user to enter name of two players.
+
+    Returns names in a tuple
+    """
     player1 = str(input("Name of player1: "))
     player2 = str(input("Name of player2: "))
     while True:
@@ -30,15 +29,18 @@ def two_player_menu() -> tuple:
 
 
 def single_player_menu() -> tuple:
-    """Prompts user to enter name when in single-player,
-    returns name, and calls lvl2_2_1"""
+    """
+    Prompts user to enter name when in single-player.
+
+    Returns name, and calls set_difficulty
+    """
     player1 = str(input("Enter player-name: "))
     difficulty = set_difficulty()
     return player1, difficulty
 
 
 def set_difficulty() -> str:
-    """Allows user to pick a difficulty"""
+    """Will allow user to pick a difficulty."""
     print("Pick a difficulty")
     print("1- Easy\n2- Intermediate\n3- Hard")
     print("(1, 2 or 3)")
@@ -55,7 +57,8 @@ def set_difficulty() -> str:
 
 def highscore() -> str:
     """
-    Prompts the user to input a name in order to
-    see his highscore
+    Prompts the user to input a name.
+
+    Returns the highscore of the player with name
     """
     return str(input("Enter a name to view highscore: "))
