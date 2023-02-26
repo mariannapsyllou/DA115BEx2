@@ -1,8 +1,8 @@
 import random
 import time
-from src.dice import dice_visual
-from src.dice import Highscores
-from src.dice import Intelligence
+import dice_visual
+import Intelligence
+import Highscores
 
 
 class Game:
@@ -51,11 +51,7 @@ class Game:
         self.game_menu()
 
     def hold(self) -> None:
-        """
-        Method that handles the holding, in case the player wants
-        to stop rolling and save his current score to his total
-        score. After holding is pressed the method switch players.
-        """
+        """Will allow user to hold, and changes whose turn it is."""
         self.total_score[self.current_player] += self.current_score
         self.current_score = 0
         if self.current_player == self.player1:
@@ -65,17 +61,14 @@ class Game:
             self.game_menu()
 
     def hack(self) -> None:
-        """
-        Increase the current player total score by 50 points
-        so he can win faster.
-        """
+        """Will increase the current player total score by 50 points."""
         self.total_score[self.current_player] += 50
 
     def game_menu(self) -> None:
         """
-        he method finds and prints the winner.
-        If winner was not found prints the menu of whose player
-        turn is.
+        Will print the in-game menu.
+
+        if total score > 100 will print the winner and call update highscore
         """
         if (
             self.total_score[self.current_player] < 100

@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import mock_open, patch
 from io import StringIO
 from src.dice.Highscores import Highscores
-from src.dice.Player import Player
+from src.dice.player import Player
 
 
 class TestHighscores(unittest.TestCase):

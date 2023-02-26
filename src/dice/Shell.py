@@ -1,10 +1,10 @@
 import cmd
 import sys
 import Intelligence
+import Highscores
+import player
 import game
 import menu
-import Player
-import Highscores
 
 
 class shell(cmd.Cmd):
@@ -30,8 +30,8 @@ class shell(cmd.Cmd):
     def do_double(self, _) -> None:
         """Will start two_player mode with given player-names."""
         name1, name2 = menu.two_player_menu()
-        self.player1 = Player.Player(name1)
-        self.player2 = Player.Player(name2)
+        self.player1 = player.Player(name1)
+        self.player2 = player.Player(name2)
         self.game_started = True
         self.game = game.Game(self.player1, self.player2, None)
         self.game.game_menu()
@@ -63,7 +63,7 @@ class shell(cmd.Cmd):
         """Will start single-player mode with given name."""
         name1, difficulty = menu.single_player_menu()
         self.game_started = True
-        player1 = Player.Player(name1)
+        player1 = player.Player(name1)
         self.game = game.Game(player1, "Computer", difficulty)
         self.game.game_menu()
 

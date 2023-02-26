@@ -1,6 +1,4 @@
-"""
-Handles the methods of the Highscore class
-"""
+"""Handles the methods of the Highscore class"""
 
 
 class Player:
