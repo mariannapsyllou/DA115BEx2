@@ -1,8 +1,8 @@
 import random
 import time
-import dice_visual
-import Highscores
-import Intelligence
+from src.dice import dice_visual
+from src.dice import Highscores
+from src.dice import Intelligence
 
 
 class Game:

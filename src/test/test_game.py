@@ -13,17 +13,19 @@ class TestGame(unittest.TestCase):
         self.game = Game(self.player1, self.player2, self.difficulty)
 
     def test_roll(self):
-        with patch('random.randint', return_value=4):
-            with patch('dice_visual.dice4'):
-                self.game.roll()
-                self.assertEqual(self.game.current_score, 4)
-                self.assertEqual(self.game.current_player, self.player1)
+        with patch("builtins.print"), patch("random.randint", return_value=4), patch(
+            "src.dice.dice_visual.dice4"
+        ):
+            self.game.roll()
+            self.assertEqual(self.game.current_score, 4)
+            self.assertEqual(self.game.current_player, self.player1)
 
-        with patch('random.randint', return_value=1):
-            with patch('dice_visual.dice1'):
-                self.game.roll()
-                self.assertEqual(self.game.current_score, 0)
-                self.assertEqual(self.game.current_player, self.player2)
+        with patch("builtins.print"), patch("random.randint", return_value=1), patch(
+            "src.dice.dice_visual.dice1"
+        ):
+            self.game.roll()
+            self.assertEqual(self.game.current_score, 0)
+            self.assertEqual(self.game.current_player, self.player2)
 
     def test_init(self):
         self.assertEqual(self.game.player1, self.player1)
@@ -33,7 +35,7 @@ class TestGame(unittest.TestCase):
         self.assertEqual(self.game.total_score[self.player1], 0)
         self.assertEqual(self.game.total_score[self.player2], 0)
         self.assertEqual(self.game.current_score, 0)
-        self.assertIsInstance(self.game.intelligence, Intelligence.Intelligence)
+        self.assertIsInstance(self.game.intelligence, Intelligence)
 
 
 if __name__ == "__main__":
