@@ -80,15 +80,16 @@ codestyle: black
 #
 unittest:
 	@$(call MESSAGE,$@)
-	 $(PYTHON) -m unittest discover
+	$(PYTHON) -m unittest discover
 
 coverage:
 	@$(call MESSAGE,$@)
-	coverage run -m unittest discover
+	coverage run --source=. -m unittest discover -s tests
 	coverage html
 	coverage report -m
 
 test: lint coverage
+
 
 
 # ---------------------------------------------------------

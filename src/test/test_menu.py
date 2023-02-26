@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from ..dice import menu
+from src.dice import menu
 
 
 class TestMenus(unittest.TestCase):
