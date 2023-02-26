@@ -10,6 +10,7 @@ class TestGame(unittest.TestCase):
         self.player1 = "Anna"
         self.player2 = "Kalle"
         self.difficulty = "easy"
+        self.current_score = 5
         self.game = Game(self.player1, self.player2, self.difficulty)
 
     def test_roll(self):
@@ -26,6 +27,18 @@ class TestGame(unittest.TestCase):
             self.game.roll()
             self.assertEqual(self.game.current_score, 0)
             self.assertEqual(self.game.current_player, self.player2)
+
+    def test_hold(self):
+        self.game.total_score[self.game.player1] = 10
+        self.game.current_score = 5
+        self.game.current_player = self.player1
+
+        self.game.hold()
+
+        self.assertEqual(self.game.total_score[self.game.player1], 15)
+
+        self.assertEqual(self.game.current_score, 0)
+        self.assertEqual(self.game.current_player, self.game.player2)
 
     def test_init(self):
         self.assertEqual(self.game.player1, self.player1)
