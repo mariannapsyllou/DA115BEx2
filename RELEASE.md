@@ -1,6 +1,10 @@
 Release history
 ========================
 
+Decide on a way how to handled your relaeases and version numbers. Document it here.
+
+For example like this...
+
 
 
 v2.0.0 (2022-02-05)
