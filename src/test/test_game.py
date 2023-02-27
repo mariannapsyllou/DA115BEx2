@@ -29,16 +29,22 @@ class TestGame(unittest.TestCase):
             self.assertEqual(self.game.current_player, self.player2)
 
     def test_hold(self):
-        self.game.total_score[self.game.player1] = 10
-        self.game.current_score = 5
-        self.game.current_player = self.player1
-
+        self.game.current_player = self.game.player1
+        self.game.total_score[self.game.current_player] = 10
+        self.game.current_score = 10
         self.game.hold()
-
-        self.assertEqual(self.game.total_score[self.game.player1], 15)
-
+        self.assertEqual(self.game.total_score[self.game.player1], 20)
         self.assertEqual(self.game.current_score, 0)
         self.assertEqual(self.game.current_player, self.game.player2)
+
+    def test_hold2(self):
+        self.game.current_player = self.game.player2
+        self.game.total_score[self.game.current_player] = 40
+        self.game.current_score = 20
+        self.game.hold()
+        self.assertEqual(self.game.total_score[self.game.player2], 60)
+        self.assertEqual(self.game.current_score, 0)
+        self.assertEqual(self.game.current_player, self.game.player1)
 
     def test_init(self):
         self.assertEqual(self.game.player1, self.player1)
