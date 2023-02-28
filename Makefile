@@ -66,7 +66,7 @@ pylint:
 
 flake8:
 	@$(call MESSAGE,$@)
-	-flake8
+	-flake8 --exclude=.venv
 
 lint: flake8 pylint
 
