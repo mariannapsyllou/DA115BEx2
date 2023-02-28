@@ -11,3 +11,7 @@ class Player:
     def __str__(self) -> str:
         """To string method for printing the Player objects."""
         return f"{self.name}"
+
+    def whatever(self):
+        """Whatever."""
+        print("Hello")

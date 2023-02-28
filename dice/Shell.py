@@ -1,13 +1,14 @@
+"""Shell."""
 import cmd
 import sys
-import Intelligence
-import Highscores
-import Player
+import intelligence
+import highscores
+import player
 import game
 import menu
 
 
-class shell(cmd.Cmd):
+class Shell(cmd.Cmd):
     """Handles all the cmd/shell commands of the game."""
 
     prompt = ">>>"
@@ -15,11 +16,11 @@ class shell(cmd.Cmd):
     def __init__(self):
         """Init the object."""
         super().__init__()
-        self.highscore = Highscores.Highscores()
+        self.highscore = highscores.Highscores()
         self.game = game.Game(None, None, None)
         self.player1 = None
         self.player2 = None
-        self.intelligence = Intelligence.Intelligence()
+        self.intelligence = intelligence.Intelligence()
         self.game_started = False
         print(menu.main_menu())
 
@@ -30,8 +31,8 @@ class shell(cmd.Cmd):
     def do_double(self, _) -> None:
         """Will start two_player mode with given player-names."""
         name1, name2 = menu.two_player_menu()
-        self.player1 = Player.Player(name1)
-        self.player2 = Player.Player(name2)
+        self.player1 = player.Player(name1)
+        self.player2 = player.Player(name2)
         self.game_started = True
         self.game = game.Game(self.player1, self.player2, None)
         self.game.game_menu()
@@ -63,13 +64,13 @@ class shell(cmd.Cmd):
         """Will start single-player mode with given name."""
         name1, difficulty = menu.single_player_menu()
         self.game_started = True
-        player1 = Player.Player(name1)
+        player1 = player.Player(name1)
         self.game = game.Game(player1, "Computer", difficulty)
         self.game.game_menu()
 
     def do_view(self, _) -> None:
         """Will print the instructions for the program."""
-        high = Highscores.Highscores()
+        high = highscores.Highscores()
         high.view_instructions()
 
     def do_exit(self, _) -> None:
@@ -113,4 +114,4 @@ class shell(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    shell().cmdloop()
+    Shell().cmdloop()

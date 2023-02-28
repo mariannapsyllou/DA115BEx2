@@ -1,6 +1,6 @@
 """Test for Intelligence class."""
 import unittest
-from dice import Intelligence
+from dice import intelligence
 
 
 class TestIntelligence(unittest.TestCase):
@@ -11,7 +11,7 @@ class TestIntelligence(unittest.TestCase):
 
     def setUp(self):
         """Setting up the class"""
-        self.intelligence = Intelligence.Intelligence()
+        self.intelligence = intelligence.Intelligence()
 
     def test_init(self):
         """Cheking the init"""

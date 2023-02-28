@@ -2,8 +2,8 @@
 import unittest
 from unittest.mock import mock_open, patch
 from io import StringIO
-from dice import Highscores
-from dice import Player
+from dice import highscores
+from dice import player
 
 
 class TestHighscores(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestHighscores(unittest.TestCase):
         """
         Setting up the class
         """
-        self.highscores = Highscores.Highscores()
+        self.highscores = highscores.Highscores()
 
     def test_dict_results(self):
         """
@@ -25,7 +25,8 @@ class TestHighscores(unittest.TestCase):
         output is a dictionary with names and scores
         """
         mock_file_data = "Anna,10\nKalle,20\nAlex,30\n"
-        with patch("builtins.open", mock_open(read_data=mock_file_data)) as mock_file:
+        with patch("builtins.open", mock_open(read_data=mock_file_data)) \
+                as mock_file:
             result_dict = self.highscores.dict_results()
             expected_output = {"Anna": 10, "Kalle": 20, "Alex": 30}
         self.assertEqual(result_dict, expected_output)
@@ -36,8 +37,8 @@ class TestHighscores(unittest.TestCase):
         and prints the expected outputs
         """
         with patch.object(
-            self.highscores, "dict_results", return_value={"Anna": 10, "Kalle": 20}
-        ):
+            self.highscores, "dict_results",
+             return_value={"Anna": 10, "Kalle": 20}):
             expected_output = "Anna you have won the game 10 times!!\n"
             with patch("sys.stdout", new=StringIO()) as fake_output:
                 self.highscores.scores("Anna")
@@ -56,7 +57,8 @@ class TestHighscores(unittest.TestCase):
         with patch("builtins.open", return_value=StringIO(expected_output)):
             with patch("sys.stdout", new=StringIO()) as fake_output:
                 self.highscores.view_instructions()
-                self.assertEqual(fake_output.getvalue().strip(), expected_output)
+                self.assertEqual(fake_output.getvalue().strip(),
+                                 expected_output)
 
     def test_update(self):
         """
@@ -64,17 +66,19 @@ class TestHighscores(unittest.TestCase):
         are updated correctly
         """
         mock_file_data = "Anna,10\nKalle,20\nAlex,30\n"
-        with patch("builtins.open", mock_open(read_data=mock_file_data)) as mock_file:
-            player = Player.Player("Anna")
-            self.highscores.update(player)
+        with patch("builtins.open", mock_open(read_data=mock_file_data)) \
+             as mock_file:
+            player1 = player.Player("Anna")
+            self.highscores.update(player1)
 
         expected_output = "Anna,11\nKalle,20\nAlex,30\n"
         handle = mock_file
         # handle.write.assert_called_once_with(expected_output)
 
-        with patch("builtins.open", mock_open(read_data=mock_file_data)) as mock_file:
-            player = Player.Player("Samy")
-            self.highscores.update(player)
+        with patch("builtins.open", mock_open(read_data=mock_file_data)) \
+             as mock_file:
+            player2 = player.Player("Samy")
+            self.highscores.update(player2)
         expected_output = "Anna,10\nKalle,20\nAlex,30\nSamy,1\n"
         handle = mock_file()
         handle.write.assert_called_once_with(expected_output)

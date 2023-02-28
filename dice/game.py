@@ -1,9 +1,9 @@
 """Class Game."""
 import random
 import time
+import intelligence
+import highscores
 import dice_visual
-import Intelligence
-import Highscores
 
 
 class Game:
@@ -18,7 +18,7 @@ class Game:
         self.current_player = player1
         self.total_score = {player1: 0, player2: 0}
         self.current_score = 0
-        self.intelligence = Intelligence.Intelligence()
+        self.intelligence = intelligence.Intelligence()
 
     def roll(self) -> None:
         """
@@ -27,27 +27,28 @@ class Game:
         Also calls dice_visual functions
         """
         roll = random.randint(1, 6)
+        dice = dice_visual.DiceVisual()
         if roll == 1:
-            dice_visual.dice1()
+            dice.dice1()
             self.current_score = 0
             if self.current_player == self.player1:
                 self.current_player = self.player2
             else:
                 self.current_player = self.player1
         elif roll == 2:
-            dice_visual.dice2()
+            dice.dice2()
             self.current_score += 2
         elif roll == 3:
-            dice_visual.dice3()
+            dice.dice3()
             self.current_score += 3
         elif roll == 4:
-            dice_visual.dice4()
+            dice.dice4()
             self.current_score += 4
         elif roll == 5:
-            dice_visual.dice5()
+            dice.dice5()
             self.current_score += 5
         else:
-            dice_visual.dice6()
+            dice.dice6()
             self.current_score += 6
         self.game_menu()
 
@@ -73,8 +74,8 @@ class Game:
         """
         if (
             self.total_score[self.current_player] < 100
-            and (self.total_score[self.current_player]) + self.current_score < 100
-        ):
+            and (self.total_score[self.current_player]) +
+                self.current_score < 100):
             print(f"{self.current_player}'s turn")
             print(f"{self.current_player}'s total score:", end=" ")
             print(f"{self.total_score[self.current_player]}")
@@ -86,7 +87,7 @@ class Game:
                 self.game_pc()
         else:
             print(f"{max(self.total_score, key=self.total_score.get)} wins!")
-            high = Highscores.Highscores()
+            high = highscores.Highscores()
             high.update(self.current_player)
 
     def game_pc(self) -> None:
