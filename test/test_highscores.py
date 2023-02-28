@@ -39,7 +39,7 @@ class TestHighscores(unittest.TestCase):
         with patch.object(
             self.highscores, "dict_results",
              return_value={"Anna": 10, "Kalle": 20}):
-            expected_output = "Anna you have won the game 10 times!!\n"
+            expected_output = "Anna you have won the game 10times!!\n"
             with patch("sys.stdout", new=StringIO()) as fake_output:
                 self.highscores.scores("Anna")
                 self.assertEqual(fake_output.getvalue(), expected_output)
