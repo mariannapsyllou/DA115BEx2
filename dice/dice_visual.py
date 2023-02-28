@@ -1,8 +1,7 @@
 """
-Visual representation of the die faces
+Visual representation of the die faces.
 """
-class dice_visual():
-    
+
 
 def dice1() -> None:
     """
