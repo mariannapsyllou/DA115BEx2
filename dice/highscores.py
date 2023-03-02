@@ -48,7 +48,8 @@ class Highscores:
         and prints them for the user if requested
         """
         try:
-            with open("dice/Instructions.txt", "r", encoding="utf8") as filename:
+            with open(
+             "dice/Instructions.txt", "r", encoding="utf8") as filename:
                 for line in filename:
                     print(line)
         except FileNotFoundError:
