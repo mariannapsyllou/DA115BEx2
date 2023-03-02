@@ -18,7 +18,7 @@ class Highscores:
         """
         result_dict = {}
         try:
-            with open("Results.txt", "r", encoding="utf8") as filename:
+            with open("dice/Results.txt", "r", encoding="utf8") as filename:
                 for line in filename:
                     line = line.strip()
                     key, value = line.split(",")
@@ -48,7 +48,7 @@ class Highscores:
         and prints them for the user if requested
         """
         try:
-            with open("Instructions.txt", "r", encoding="utf8") as filename:
+            with open("dice/Instructions.txt", "r", encoding="utf8") as filename:
                 for line in filename:
                     print(line)
         except FileNotFoundError:
@@ -62,7 +62,7 @@ class Highscores:
             update_dict[name] += 1
         else:
             update_dict[name] = 1
-        with open("Results.txt", "w", encoding="utf8") as filename:
+        with open("dice/Results.txt", "w", encoding="utf8") as filename:
             results_str = "".join(
                 [f"{key},{value}\n" for key, value in update_dict.items()]
             )
