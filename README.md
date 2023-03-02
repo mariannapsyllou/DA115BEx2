@@ -19,7 +19,7 @@ This is how you can work with the development environment.
 
 ### Check version of Python
 
-Check what version of Python you have. The Makefile uses `PYTHON=python` as default.
+Check what version of Python you have. The Makefile uses `PYTHON=python3` as default.
 
 ```
 # Check you Python installation
@@ -82,11 +82,13 @@ Read more on [Python PIP](https://pypi.org/project/pip/).
 The example program can be started like this.
 
 ```
-# Execute the main program
-python guess/main.py
+# First export the python to the directory with
+export PYTHONPATH=.
+# Then you can run the game with
+python dice/shell.py
 ```
 
-All code is stored below the directory `guess/`.
+All code is stored below the directory `dice/`.
 
 
 
@@ -103,7 +105,7 @@ make pylint
 make lint
 ```
 
-You might need to update the Makefile if you change the name of the source directory currently named `guess/`.
+You might need to update the Makefile if you change the name of the source directory currently named `dice/`.
 
 Read more on:
 
