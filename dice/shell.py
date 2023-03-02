@@ -1,7 +1,6 @@
 """Shell."""
 import cmd
 import sys
-
 import highscores
 import player
 import game
@@ -16,7 +15,6 @@ class Shell(cmd.Cmd):
     def __init__(self):
         """Init the object."""
         super().__init__()
-        self.highscore = highscores.Highscores()
         self.game = game.Game(None, None, None)
         self.player1 = None
         self.player2 = None
@@ -109,7 +107,8 @@ class Shell(cmd.Cmd):
         or if name is not found prints error-message
         """
         name = menu.highscore()
-        self.highscore.scores(name)
+        high = highscores.Highscores()
+        high.scores(name)
 
 
 if __name__ == "__main__":

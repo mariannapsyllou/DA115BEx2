@@ -1,3 +1,1 @@
-"""
-uniteesting
-"""
+"""Uniteesting."""

@@ -92,8 +92,9 @@ class Game:
 
     def game_pc(self) -> None:
         """
-        The method handles the game when the second player is
-        the Computer. Checks the difficulty level and act
+        Will handle the game with computer.
+
+        Checks the difficulty level and act
         appropriate according to that.
         """
         if self.difficulty == "easy":

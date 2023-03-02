@@ -1,6 +1,4 @@
-"""
-Visual representation of the die faces
-"""
+"""Visual representation of the die faces."""
 
 
 class DiceVisual():

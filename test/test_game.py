@@ -29,6 +29,7 @@ class TestGame(unittest.TestCase):
                 self.assertEqual(self.game.current_player, self.player2)
 
     def test_init(self):
+        """Will check the init."""
         self.assertEqual(self.game.player1, self.player1)
         self.assertEqual(self.game.player2, self.player2)
         self.assertEqual(self.game.difficulty, self.difficulty)
@@ -38,6 +39,7 @@ class TestGame(unittest.TestCase):
         self.assertEqual(self.game.current_score, 0)
 
     def test_hold(self):
+        """Will test the hold."""
         self.game.current_player = self.game.player1
         self.game.total_score[self.game.current_player] = 10
         self.game.current_score = 10
@@ -47,6 +49,7 @@ class TestGame(unittest.TestCase):
         self.assertEqual(self.game.current_player, self.game.player2)
 
     def test_hold2(self):
+        """Will test the hold."""
         self.game.current_player = self.game.player2
         self.game.total_score[self.game.current_player] = 40
         self.game.current_score = 20

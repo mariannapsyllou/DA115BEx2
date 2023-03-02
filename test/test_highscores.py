@@ -8,19 +8,19 @@ from dice import player
 
 class TestHighscores(unittest.TestCase):
     """
-    Test Highscores class is
-    responsible for testing Highscore class
+    Test Highscores class.
+
+    Responsible for testing Highscore class
     """
 
     def setUp(self) -> None:
-        """
-        Setting up the class
-        """
+        """Will set up the class."""
         self.highscores = highscores.Highscores()
 
     def test_dict_results(self):
         """
-        The test checks the dict_results function
+        The test checks the dict_results function.
+
         Reads a file and checks that the expected
         output is a dictionary with names and scores
         """
@@ -33,7 +33,9 @@ class TestHighscores(unittest.TestCase):
 
     def test_scores(self):
         """
-        Thes test checks inside the dictionary if the user played the game
+        Thes test checks inside the dictionary.
+
+        If the user played the game
         and prints the expected outputs
         """
         with patch.object(
@@ -50,9 +52,7 @@ class TestHighscores(unittest.TestCase):
                 self.assertEqual(fake_output.getvalue(), expected_output)
 
     def test_view(self):
-        """
-        Checks if the game instructions are printed correct
-        """
+        """Will check if the game instructions are printed correct."""
         expected_output = "This is a test file"
         with patch("builtins.open", return_value=StringIO(expected_output)):
             with patch("sys.stdout", new=StringIO()) as fake_output:
@@ -62,7 +62,9 @@ class TestHighscores(unittest.TestCase):
 
     def test_update(self):
         """
-        Checks if the results when the player has won a game
+        Will check the results.
+
+        When the player has won a game
         are updated correctly
         """
         mock_file_data = "Anna,10\nKalle,20\nAlex,30\n"

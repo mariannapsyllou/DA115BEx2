@@ -1,3 +1,4 @@
+"""Menu Testing."""
 import unittest
 from unittest.mock import patch
 from dice import menu
