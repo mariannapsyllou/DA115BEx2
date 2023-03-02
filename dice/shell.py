@@ -1,7 +1,7 @@
 """Shell."""
 import cmd
 import sys
-import intelligence
+
 import highscores
 import player
 import game
@@ -20,7 +20,6 @@ class Shell(cmd.Cmd):
         self.game = game.Game(None, None, None)
         self.player1 = None
         self.player2 = None
-        self.intelligence = intelligence.Intelligence()
         self.game_started = False
         print(menu.main_menu())
 

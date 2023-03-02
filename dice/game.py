@@ -1,9 +1,9 @@
 """Class Game."""
 import random
 import time
-import intelligence
-import highscores
-import dice_visual
+from dice import intelligence
+from dice import highscores
+from dice import dice_visual
 
 
 class Game:

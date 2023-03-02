@@ -17,13 +17,13 @@ class TestGame(unittest.TestCase):
     def test_roll(self):
         """Will test roll."""
         with patch('random.randint', return_value=4):
-            with patch('dice.dice_visual.dice4'):
+            with patch('dice.dice_visual.DiceVisual.dice4'):
                 self.game.roll()
                 self.assertEqual(self.game.current_score, 4)
                 self.assertEqual(self.game.current_player, self.player1)
 
         with patch('random.randint', return_value=1):
-            with patch('dice.dice_visual.dice1'):
+            with patch('dice.dice_visual.DiceVisual.dice1'):
                 self.game.roll()
                 self.assertEqual(self.game.current_score, 0)
                 self.assertEqual(self.game.current_player, self.player2)
