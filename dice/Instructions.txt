@@ -2,6 +2,17 @@
 The game can be played with two player or with one against the computer.
 The goal is to collect 100 points in order to winn!
 You have 2 options to roll or hold
-If you roll your points are collected until you hold, when the are added to your total
+If you roll you collect points until you hold
+When  you hold your current points are added to your total score
 If you roll 1 you lose all your round points
-You can use the help command to see what commands you can use
+The commands you can use are:
+single: Start a game with one player vs the computer
+double : Start a game with two players
+main : You go back to the main menu
+view : You can see the instructions of the game
+new : You restart your current game
+highscore : You can see the highscores of a given player
+exit : You exit the game
+roll : You roll the dice
+hold : You hold
+hack : You are hacking the game 
