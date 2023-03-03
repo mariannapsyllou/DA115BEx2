@@ -70,7 +70,6 @@ class TestGame(unittest.TestCase):
 
     def test_hold(self):
         """Will test the hold."""
-
         self.game.current_player = self.game.player1
         self.game.total_score[self.game.current_player] = 10
         self.game.current_score = 10
