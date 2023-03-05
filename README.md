@@ -1,19 +1,17 @@
-<h1 align="left">python-template</h1>
-
 <p align="left">
   Pig dice game with python OOP
-  <br> 
+  <br>
 </p>
 
 
-##  About 
+##  About
 
-The progect was created with Python OOP. 
+The project was created with Python OOP.
 It consists of 8 classes which are game, intelligence, highscores,
 dice_visual, menu, player, main and the shell which include the cmd commads.
 
-One can play the game as single player versus Computer. For that purpose 
-class Intelligence was created and holds how the Computer will play the game 
+One can play the game as single player versus Computer. For that purpose
+class Intelligence was created and holds how the Computer will play the game
 including 3 different levels of difficulty.
 One can also play the game with another person.
 One can see highscores and the instructions of the game at any time wishes as well
@@ -84,7 +82,7 @@ python dice/main.py
 
 All code is stored below the directory `dice/`.
 
-##  Unittesting and validators 
+##  Unittesting and validators
 
 ### Run the validators
 
