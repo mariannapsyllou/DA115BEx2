@@ -16,44 +16,44 @@ class TestGame(unittest.TestCase):
 
     def test_roll(self):
         """Will test roll."""
-        with patch('random.randint', return_value=4):
-            with patch('dice.dice_visual.DiceVisual.dice4'):
-                with patch('dice.game.Game.game_menu'):
+        with patch("random.randint", return_value=4):
+            with patch("dice.dice_visual.DiceVisual.dice4"):
+                with patch("dice.game.Game.game_menu"):
                     self.game.roll()
                     self.assertEqual(self.game.current_score, 4)
                     self.assertEqual(self.game.current_player, self.player1)
 
-        with patch('random.randint', return_value=5):
-            with patch('dice.dice_visual.DiceVisual.dice5'):
-                with patch('dice.game.Game.game_menu'):
+        with patch("random.randint", return_value=5):
+            with patch("dice.dice_visual.DiceVisual.dice5"):
+                with patch("dice.game.Game.game_menu"):
                     self.game.roll()
                     self.assertEqual(self.game.current_score, 9)
                     self.assertEqual(self.game.current_player, self.player1)
 
-        with patch('random.randint', return_value=6):
-            with patch('dice.dice_visual.DiceVisual.dice6'):
-                with patch('dice.game.Game.game_menu'):
+        with patch("random.randint", return_value=6):
+            with patch("dice.dice_visual.DiceVisual.dice6"):
+                with patch("dice.game.Game.game_menu"):
                     self.game.roll()
                     self.assertEqual(self.game.current_score, 15)
                     self.assertEqual(self.game.current_player, self.player1)
 
-        with patch('random.randint', return_value=2):
-            with patch('dice.dice_visual.DiceVisual.dice2'):
-                with patch('dice.game.Game.game_menu'):
+        with patch("random.randint", return_value=2):
+            with patch("dice.dice_visual.DiceVisual.dice2"):
+                with patch("dice.game.Game.game_menu"):
                     self.game.roll()
                     self.assertEqual(self.game.current_score, 17)
                     self.assertEqual(self.game.current_player, self.player1)
 
-        with patch('random.randint', return_value=3):
-            with patch('dice.dice_visual.DiceVisual.dice3'):
-                with patch('dice.game.Game.game_menu'):
+        with patch("random.randint", return_value=3):
+            with patch("dice.dice_visual.DiceVisual.dice3"):
+                with patch("dice.game.Game.game_menu"):
                     self.game.roll()
                     self.assertEqual(self.game.current_score, 20)
                     self.assertEqual(self.game.current_player, self.player1)
 
-        with patch('random.randint', return_value=1):
-            with patch('dice.dice_visual.DiceVisual.dice1'):
-                with patch('dice.game.Game.game_menu'):
+        with patch("random.randint", return_value=1):
+            with patch("dice.dice_visual.DiceVisual.dice1"):
+                with patch("dice.game.Game.game_menu"):
                     self.game.roll()
                     self.assertEqual(self.game.current_score, 0)
                     self.assertEqual(self.game.current_player, self.player2)
@@ -73,7 +73,7 @@ class TestGame(unittest.TestCase):
         self.game.current_player = self.game.player1
         self.game.total_score[self.game.current_player] = 10
         self.game.current_score = 10
-        with patch('dice.game.Game.game_menu'):
+        with patch("dice.game.Game.game_menu"):
             self.game.hold()
             self.assertEqual(self.game.total_score[self.game.player1], 20)
             self.assertEqual(self.game.current_score, 0)
@@ -84,7 +84,7 @@ class TestGame(unittest.TestCase):
         self.game.current_player = self.game.player2
         self.game.total_score[self.game.current_player] = 40
         self.game.current_score = 20
-        with patch('dice.game.Game.game_menu'):
+        with patch("dice.game.Game.game_menu"):
             self.game.hold()
             self.assertEqual(self.game.total_score[self.game.player2], 60)
             self.assertEqual(self.game.current_score, 0)
@@ -127,8 +127,9 @@ class TestGame(unittest.TestCase):
         """Will test the hack method."""
         expected_score = self.game.total_score[self.game.current_player] + 50
         self.game.hack()
-        self.assertEqual(self.game.total_score[self.game.current_player],
-                         expected_score)
+        self.assertEqual(
+            self.game.total_score[self.game.current_player], expected_score
+        )
 
 
 if __name__ == "__main__":

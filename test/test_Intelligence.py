@@ -24,12 +24,12 @@ class TestIntelligence(unittest.TestCase):
     def test_easy(self):
         """Will check for the easy function with return roll."""
         self.intelligence.score = 10
-        self.assertEqual(self.intelligence.easy(), 'r')
+        self.assertEqual(self.intelligence.easy(), "r")
 
     def test_easy2(self):
         """Will check for the easy function with return hold."""
         self.intelligence.score = 25
-        self.assertEqual(self.intelligence.easy(), 'h')
+        self.assertEqual(self.intelligence.easy(), "h")
 
     def test_intermediate(self):
         """Will check for the intermediate function with return roll."""
@@ -54,5 +54,5 @@ class TestIntelligence(unittest.TestCase):
         self.assertEqual(self.intelligence.difficult(), "h")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

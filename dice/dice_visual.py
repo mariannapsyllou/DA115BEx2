@@ -1,7 +1,7 @@
 """Visual representation of the die faces."""
 
 
-class DiceVisual():
+class DiceVisual:
     """Class dice_visual."""
 
     def dice1(self) -> None:

@@ -1,5 +1,5 @@
 """
--------Pig Game instructions.------
+-------Pig Game instructions.------.
 
 The game can be played with two player or with one against the computer.
 The goal is to collect 100 points in order to winn!

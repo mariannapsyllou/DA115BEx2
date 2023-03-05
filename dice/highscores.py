@@ -35,9 +35,8 @@ class Highscores:
         """
         score_dict = self.dict_results()
         if player in score_dict:
-            print(
-                f"{player} you have won the game "
-                f"{score_dict.get(player)}times!!")
+            print(f"{player} you have won the game "
+                  f"{score_dict.get(player)}times!!")
         else:
             print("This user has not been registered")
 
@@ -48,8 +47,8 @@ class Highscores:
         and prints them for the user if requested
         """
         try:
-            with open(
-             "dice/Instructions.txt", "r", encoding="utf8") as filename:
+            with open("dice/Instructions.txt", "r", encoding="utf8")\
+                    as filename:
                 for line in filename:
                     print(line)
         except FileNotFoundError:

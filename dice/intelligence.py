@@ -1,7 +1,7 @@
 """Handles the methods of the Intelligence class."""
 
 
-class Intelligence():
+class Intelligence:
     """
     Class that handles the different levels.
 
@@ -36,8 +36,8 @@ class Intelligence():
         Otherwise hold on 21 plus the difference between scores
         divided by 8.
         """
-        difference = max(
-            self.max_score.values()) - min(self.max_score.values())
+        difference = max(self.max_score.values())\
+            - min(self.max_score.values())
         if max(self.max_score.values()) >= 71:
             return "r"
         if self.score >= 21 + (difference / 8):

@@ -23,22 +23,16 @@ class Shell(cmd.Cmd):
 
     def do_main(self, _) -> None:
         """Will print the main menu."""
-        if not self.game_started:
-            print(menu.main_menu())
-        else:
-            print("Please finish the game or type exit to quit!")
+        print(menu.main_menu())
 
     def do_double(self, _) -> None:
         """Will start two_player mode with given player-names."""
-        if not self.game_started:
-            name1, name2 = menu.two_player_menu()
-            self.player1 = player.Player(name1)
-            self.player2 = player.Player(name2)
-            self.game_started = True
-            self.game = game.Game(self.player1, self.player2, None)
-            self.game.game_menu()
-        else:
-            print("Please finish the game or type exit to quit!")
+        name1, name2 = menu.two_player_menu()
+        self.player1 = player.Player(name1)
+        self.player2 = player.Player(name2)
+        self.game_started = True
+        self.game = game.Game(self.player1, self.player2, None)
+        self.game.game_menu()
 
     def do_roll(self, _) -> None:
         """
@@ -65,22 +59,16 @@ class Shell(cmd.Cmd):
 
     def do_single(self, _) -> None:
         """Will start single-player mode with given name."""
-        if not self.game_started:
-            name1, difficulty = menu.single_player_menu()
-            self.game_started = True
-            player1 = player.Player(name1)
-            self.game = game.Game(player1, "Computer", difficulty)
-            self.game.game_menu()
-        else:
-            print("Please finish the game or type exit to quit!")
+        name1, difficulty = menu.single_player_menu()
+        self.game_started = True
+        player1 = player.Player(name1)
+        self.game = game.Game(player1, "Computer", difficulty)
+        self.game.game_menu()
 
     def do_view(self, _) -> None:
         """Will print the instructions for the program."""
-        if not self.game_started:
-            high = highscores.Highscores()
-            high.view_instructions()
-        else:
-            print("Please finish the game or type exit to quit!")
+        high = highscores.Highscores()
+        high.view_instructions()
 
     def do_exit(self, _) -> None:
         """Will print the exit message and exits program."""
@@ -118,12 +106,9 @@ class Shell(cmd.Cmd):
         Returns how many times given player has won
         or if name is not found prints error-message
         """
-        if not self.game_started:
-            name = menu.highscore()
-            high = highscores.Highscores()
-            high.scores(name)
-        else:
-            print("Please finish the game or type exit to quit!")
+        name = menu.highscore()
+        high = highscores.Highscores()
+        high.scores(name)
 
 
 if __name__ == "__main__":

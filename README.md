@@ -1,23 +1,29 @@
-Python development project template
-==========================
+<h1 align="left">python-template</h1>
 
-[![Documentation Status](https://readthedocs.org/projects/a-python-project-template-codestyle-and-linters-included/badge/?version=latest)](https://a-python-project-template-codestyle-and-linters-included.readthedocs.io/en/latest/?badge=latest)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
-A template for a Python development project.
-
-[[_TOC_]]
+<p align="left">
+  Pig dice game with python OOP
+  <br> 
+</p>
 
 
+##  About 
 
-Get going
---------------------------
+The progect was created with Python OOP. 
+It consists of 8 classes which are game, intelligence, highscores,
+dice_visual, menu, player, main and the shell which include the cmd commads.
 
-This is how you can work with the development environment.
+One can play the game as single player versus Computer. For that purpose 
+class Intelligence was created and holds how the Computer will play the game 
+including 3 different levels of difficulty.
+One can also play the game with another person.
+One can see highscores and the instructions of the game at any time wishes as well
+as restart the current game or switch between single and double player games.
 
 
 
-### Check version of Python
+## Instalation
+
+Check version of Python
 
 Check what version of Python you have. The Makefile uses `PYTHON=python3` as default.
 
@@ -33,10 +39,6 @@ If you have another naming of the Python executable then you can solve that usin
 export PYTHON=python3
 make version
 ```
-
-Read more on [GNU make](https://www.gnu.org/software/make/manual/make.html).
-
-
 
 ### Python virtual environment
 
@@ -55,10 +57,6 @@ make venv
 
 When you are done you can leave the venv using the command `deactivate`.
 
-Read more on [Python venv](https://docs.python.org/3/library/venv.html).
-
-
-
 ### Install the dependencies
 
 Install the PIP packages that are dependencies to the project and/or the development environment. The dependencies are documented in the `requirements.txt`.
@@ -73,24 +71,20 @@ make install
 make installed
 ```
 
-Read more on [Python PIP](https://pypi.org/project/pip/).
-
-
-
 ### Run the code
 
-The example program can be started like this.
+The Pig game program can be started like this.
 
 ```
 # First export the python to the directory with
 export PYTHONPATH=.
 # Then you can run the game with
-python dice/shell.py
+python dice/main.py
 ```
 
 All code is stored below the directory `dice/`.
 
-
+##  Unittesting and validators 
 
 ### Run the validators
 
@@ -106,13 +100,6 @@ make lint
 ```
 
 You might need to update the Makefile if you change the name of the source directory currently named `dice/`.
-
-Read more on:
-
-* [flake8](https://flake8.pycqa.org/en/latest/)
-* [pylint](https://pylint.org/)
-
-
 
 ### Run the unittests
 
@@ -131,38 +118,9 @@ make test
 
 You can open a web browser to inspect the code coverage as a generated HTML report.
 
-```
-firefox htmlcov/index.html
-```
-
-Read more on:
-
-* [unittest](https://docs.python.org/3/library/unittest.html)
-* [coverage](https://coverage.readthedocs.io/)
 
 
-
-### Run parts of the testsuite
-
-You can also run parts of the testsuite, for examples files or methods in files.
-
-You can run all tests from a testfile.
-
-```
-# Run a testfile
-python -m unittest test.test_game
-```
-
-You can also run a single testcase from a file.
-
-```
-# Run a test method, in a class, in a testfile
-python -m unittest test.test_game.TestGameClass.test_init_default_object
-```
-
-
-
-### Remove generated files
+## Remove generated files
 
 You can remove all generated files by this.
 
@@ -174,30 +132,18 @@ make clean
 make clean-all
 ```
 
+## Create a fresh copy of the documentation
 
-
-Optional targets
---------------------------
-
-These targets might be helpful when running your project.
-
-
-
-### Codestyle with black
-
-You can unify the codestyle using black. Running black will change your source code to have a codestyle according to black codestyle.
+You can create a fresh copy of the docs by this.
 
 ```
-# Same same, different names
-make black
-make codestyle
+# Create new copy in HTML version
+make doc
+
+#Create new copy of UML diagrams
+make uml
 ```
 
-Read more on [black](https://pypi.org/project/black/).
-
-
-
-More targets
---------------------------
-
-The Makefile contains more targets, they are however not yet tested on this directory structure.
+## Authors
+ Axel Friberg
+ Marianna Psyllou
