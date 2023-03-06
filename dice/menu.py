@@ -36,6 +36,12 @@ def single_player_menu() -> tuple:
     Returns name, and calls set_difficulty
     """
     player1 = str(input("Enter player-name: "))
+    while True:
+        if not re.match("[a-zA-Z]", (player1)):
+            print("Enter valid name!")
+            player1 = str(input("Enter player-name: "))
+        else:
+            break
     difficulty = set_difficulty()
     return player1, difficulty
 
