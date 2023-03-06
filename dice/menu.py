@@ -45,11 +45,17 @@ def set_difficulty() -> str:
     print("Pick a difficulty")
     print("1- Easy\n2- Intermediate\n3- Hard")
     print("(1, 2 or 3)")
-    difficulty = int(input("Choice: "))
 
-    while difficulty > 3:
-        print("Pick a number between 1-3")
-        difficulty = int(input("Choice: "))
+    while True:
+        try:
+            difficulty = int(input("Choice: "))
+            if difficulty not in [1, 2, 3]:
+                print("Pick a number between 1-3")
+            else:
+                break
+        except ValueError:
+            print("Please enter a number between 1-3")
+
     difficulty = (
         "easy" if difficulty == 1 else "intermediate" if difficulty == 2
         else "hard")
