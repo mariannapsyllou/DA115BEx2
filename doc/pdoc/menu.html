@@ -65,6 +65,12 @@ def single_player_menu() -&gt; tuple:
     Returns name, and calls set_difficulty
     &#34;&#34;&#34;
     player1 = str(input(&#34;Enter player-name: &#34;))
+    while True:
+        if not re.match(&#34;[a-zA-Z]&#34;, (player1)):
+            print(&#34;Enter valid name!&#34;)
+            player1 = str(input(&#34;Enter player-name: &#34;))
+        else:
+            break
     difficulty = set_difficulty()
     return player1, difficulty
 
@@ -74,11 +80,17 @@ def set_difficulty() -&gt; str:
     print(&#34;Pick a difficulty&#34;)
     print(&#34;1- Easy\n2- Intermediate\n3- Hard&#34;)
     print(&#34;(1, 2 or 3)&#34;)
-    difficulty = int(input(&#34;Choice: &#34;))
 
-    while difficulty &gt; 3:
-        print(&#34;Pick a number between 1-3&#34;)
-        difficulty = int(input(&#34;Choice: &#34;))
+    while True:
+        try:
+            difficulty = int(input(&#34;Choice: &#34;))
+            if difficulty not in [1, 2, 3]:
+                print(&#34;Pick a number between 1-3&#34;)
+            else:
+                break
+        except ValueError:
+            print(&#34;Please enter a number between 1-3&#34;)
+
     difficulty = (
         &#34;easy&#34; if difficulty == 1 else &#34;intermediate&#34; if difficulty == 2
         else &#34;hard&#34;)
@@ -152,11 +164,17 @@ def highscore() -&gt; str:
     print(&#34;Pick a difficulty&#34;)
     print(&#34;1- Easy\n2- Intermediate\n3- Hard&#34;)
     print(&#34;(1, 2 or 3)&#34;)
-    difficulty = int(input(&#34;Choice: &#34;))
 
-    while difficulty &gt; 3:
-        print(&#34;Pick a number between 1-3&#34;)
-        difficulty = int(input(&#34;Choice: &#34;))
+    while True:
+        try:
+            difficulty = int(input(&#34;Choice: &#34;))
+            if difficulty not in [1, 2, 3]:
+                print(&#34;Pick a number between 1-3&#34;)
+            else:
+                break
+        except ValueError:
+            print(&#34;Please enter a number between 1-3&#34;)
+
     difficulty = (
         &#34;easy&#34; if difficulty == 1 else &#34;intermediate&#34; if difficulty == 2
         else &#34;hard&#34;)
@@ -180,6 +198,12 @@ def highscore() -&gt; str:
     Returns name, and calls set_difficulty
     &#34;&#34;&#34;
     player1 = str(input(&#34;Enter player-name: &#34;))
+    while True:
+        if not re.match(&#34;[a-zA-Z]&#34;, (player1)):
+            print(&#34;Enter valid name!&#34;)
+            player1 = str(input(&#34;Enter player-name: &#34;))
+        else:
+            break
     difficulty = set_difficulty()
     return player1, difficulty</code></pre>
 </details>

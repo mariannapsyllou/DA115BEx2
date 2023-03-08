@@ -30,7 +30,7 @@
 <pre><code class="python">&#34;&#34;&#34;Handles the methods of the Intelligence class.&#34;&#34;&#34;
 
 
-class Intelligence():
+class Intelligence:
     &#34;&#34;&#34;
     Class that handles the different levels.
 
@@ -65,8 +65,8 @@ class Intelligence():
         Otherwise hold on 21 plus the difference between scores
         divided by 8.
         &#34;&#34;&#34;
-        difference = max(
-            self.max_score.values()) - min(self.max_score.values())
+        difference = max(self.max_score.values())\
+            - min(self.max_score.values())
         if max(self.max_score.values()) &gt;= 71:
             return &#34;r&#34;
         if self.score &gt;= 21 + (difference / 8):
@@ -95,7 +95,7 @@ act according to the modules.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Intelligence():
+<pre><code class="python">class Intelligence:
     &#34;&#34;&#34;
     Class that handles the different levels.
 
@@ -130,8 +130,8 @@ act according to the modules.</p>
         Otherwise hold on 21 plus the difference between scores
         divided by 8.
         &#34;&#34;&#34;
-        difference = max(
-            self.max_score.values()) - min(self.max_score.values())
+        difference = max(self.max_score.values())\
+            - min(self.max_score.values())
         if max(self.max_score.values()) &gt;= 71:
             return &#34;r&#34;
         if self.score &gt;= 21 + (difference / 8):
@@ -160,8 +160,8 @@ divided by 8.</p></div>
     Otherwise hold on 21 plus the difference between scores
     divided by 8.
     &#34;&#34;&#34;
-    difference = max(
-        self.max_score.values()) - min(self.max_score.values())
+    difference = max(self.max_score.values())\
+        - min(self.max_score.values())
     if max(self.max_score.values()) &gt;= 71:
         return &#34;r&#34;
     if self.score &gt;= 21 + (difference / 8):

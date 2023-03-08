@@ -64,9 +64,8 @@ class Highscores:
         &#34;&#34;&#34;
         score_dict = self.dict_results()
         if player in score_dict:
-            print(
-                f&#34;{player} you have won the game &#34;
-                f&#34;{score_dict.get(player)}times!!&#34;)
+            print(f&#34;{player} you have won the game &#34;
+                  f&#34;{score_dict.get(player)}times!!&#34;)
         else:
             print(&#34;This user has not been registered&#34;)
 
@@ -77,8 +76,8 @@ class Highscores:
         and prints them for the user if requested
         &#34;&#34;&#34;
         try:
-            with open(
-             &#34;dice/Instructions.txt&#34;, &#34;r&#34;, encoding=&#34;utf8&#34;) as filename:
+            with open(&#34;dice/Instructions.txt&#34;, &#34;r&#34;, encoding=&#34;utf8&#34;)\
+                    as filename:
                 for line in filename:
                     print(line)
         except FileNotFoundError:
@@ -153,9 +152,8 @@ instructions</p></div>
         &#34;&#34;&#34;
         score_dict = self.dict_results()
         if player in score_dict:
-            print(
-                f&#34;{player} you have won the game &#34;
-                f&#34;{score_dict.get(player)}times!!&#34;)
+            print(f&#34;{player} you have won the game &#34;
+                  f&#34;{score_dict.get(player)}times!!&#34;)
         else:
             print(&#34;This user has not been registered&#34;)
 
@@ -166,8 +164,8 @@ instructions</p></div>
         and prints them for the user if requested
         &#34;&#34;&#34;
         try:
-            with open(
-             &#34;dice/Instructions.txt&#34;, &#34;r&#34;, encoding=&#34;utf8&#34;) as filename:
+            with open(&#34;dice/Instructions.txt&#34;, &#34;r&#34;, encoding=&#34;utf8&#34;)\
+                    as filename:
                 for line in filename:
                     print(line)
         except FileNotFoundError:
@@ -237,9 +235,8 @@ where key is the name and value the previous score</p></div>
     &#34;&#34;&#34;
     score_dict = self.dict_results()
     if player in score_dict:
-        print(
-            f&#34;{player} you have won the game &#34;
-            f&#34;{score_dict.get(player)}times!!&#34;)
+        print(f&#34;{player} you have won the game &#34;
+              f&#34;{score_dict.get(player)}times!!&#34;)
     else:
         print(&#34;This user has not been registered&#34;)</code></pre>
 </details>
@@ -285,8 +282,8 @@ where key is the name and value the previous score</p></div>
     and prints them for the user if requested
     &#34;&#34;&#34;
     try:
-        with open(
-         &#34;dice/Instructions.txt&#34;, &#34;r&#34;, encoding=&#34;utf8&#34;) as filename:
+        with open(&#34;dice/Instructions.txt&#34;, &#34;r&#34;, encoding=&#34;utf8&#34;)\
+                as filename:
             for line in filename:
                 print(line)
     except FileNotFoundError:
