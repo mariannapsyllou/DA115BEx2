@@ -88,7 +88,10 @@ class Game:
         else:
             print(f"{max(self.total_score, key=self.total_score.get)} wins!")
             high = highscores.Highscores()
+            print("New round has started!!")
             high.update(self.current_player)
+            self.total_score = {self.player1: 0, self.player2: 0}
+            self.current_score = 0
 
     def game_pc(self) -> None:
         """
